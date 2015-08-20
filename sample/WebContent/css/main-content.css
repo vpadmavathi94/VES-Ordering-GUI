@@ -1,0 +1,14 @@
+#framework
+{
+  background-color:white;
+  height:700px;
+  margin-left:180px;
+  padding-top: 90px;
+}
+.part
+{
+	  background-color:white;
+      border-color:black;
+	  border-width:1px;
+	  border:dotted;
+}
