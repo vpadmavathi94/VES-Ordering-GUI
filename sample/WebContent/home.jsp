@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="img/favicon.png">
 
     <title>V Enterprise </title>
+    
+    <!-- new order css -->
+    <link href="css/default.css" rel="stylesheet">
 	<!--main page akash css-->
 	<link href="css/main-content.css" rel="stylesheet">
     <!-- Bootstrap CSS -->    
@@ -53,7 +56,7 @@
             </div>
 
             <!--logo start-->
-            <a href="index.html" class="logo">Verizon <span class="lite">   </span></a>
+            <a href="index.jsp" class="logo">Verizon <span class="lite">   </span></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -274,7 +277,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username"><%= session.getAttribute("userName")%></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -292,7 +295,7 @@
                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                             </li> -->
                             <li>
-                                <a href="index.jsp"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                             <!-- <li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
@@ -315,23 +318,23 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
                   <li class="active">
-                      <a class="" href="#neworder" >
+                      <a data-toggle="tab" class="" href="#neworder" onclick="change1()">
                           <i class="icon_house_alt"></i>
                           <span>New Order</span>
                       </a>
                   </li>
 				    
                   <li class="sub-menu">
-                      <a href="#cancelorder" class="">
+                      <a data-toggle="tab" href="#cancelorder" onclick="change2()">
                           <i class="icon_desktop"></i>
-                          <span>Cancel</span>
+                          <span>Edit Order</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       
                   </li>
                  
                   <li>                     
-                      <a class="" href="#orderstatus">
+                      <a data-toggle="tab" href="#orderstatus" onclick="change3()">
                           <i class="icon_piechart"></i>
                           <span>Order Status</span>
                           
@@ -343,78 +346,112 @@
           </div>
 		 
       </aside>
-	  
 	 <div id="framework" >
-	 <!--NEW ORDER-->
+	 
+	</div>
+	
+	<!--NEW ORDER-->
+	 <div id="neworder" class="onetime">
+				<fieldset>
+					<legend><center>New Order</center></legend>
+					
+					<form id="myAjaxRequestForm">
+        <fieldset>
+            <legend>Customer Information</legend>
+ 
+                <p>
+                    <label for="cust_name">Customer name:</label>
+ 
+                    <input id="cust_name" type="text" name="cust_name" />
+                </p>
+                <p>
+                    <input id="myButton" type="button" value="Submit" />
+                </p>
+        </fieldset>
+    </form>
+    <div id="anotherSection">
+        <fieldset>
+            
+                 <div id="ajaxResponse">
+  <script>
+    document.getElementById("ajaxResponse").innerHTML='<object type="text/html" data="register.html" ></object>';
+    </script> 
+                 </div>
+        </fieldset>
+    </div>  
+				</fieldset>
+	 </div>
+	 
+	 <div id="editorder" class="onetime">
+	 <fieldset>
+	 <legend><center>Edit Order(Only for the Right To Buy Customer)</center></legend>
 	 
 	 
-	  <div class="panel-body">
-                              <div class="tab-content">
-                                  
+	 Lines <select >
+	 <option>1</option>
+	 <option>2</option>
+	 <option>3</option>
+	 </select>
 	 
-	 <div id="neworder">
+	 </fieldset>
+	 </div>
 	 
-         <div id="part1" class="part">	 	  
+	 <div id="orderstatus" class="onetime">
+	 
+	 <fieldset>
+	 <legend>Order Status</legend>
+	 <div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header"><i class="icon_piechart"></i>ORDER STATUS</h3>
+					<ol class="breadcrumb">
+						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+						
+					</ol>
+				</div>
+			</div>
+            <div>
+				<form>
+					<pre>
+							Order ID : <input type="search" id="search" >		<input type="button" id="searchbutton"value="Search" onclick="visibility_div()">
+	
+					</pre>
+				</form>
+			<div id="details" style="visibility:hidden" >
+					<div >
+					<section class="panel"><canvas id="doughnut" height="200" width="300"></canvas> 
+					<table>
+					
+					<tr>
+					<td><b>Company Name : </b><div id="cmp_name"></div></td>		
+					<td><b>Status : </b><div id="status"></div></td>	
+					</tr>
+					
+					</table>
+					<br>
+																									
+							
+					</section>
+					
+					</div>
+			</div>
+			</div>
 			
-				akash
-					sfashdfjasdf
-					<br>
-					fasfsafs
-					<br>
-					afhasdfhas
-					<br>
-				
-		 </div>
-		 <br>
-		 <div id="part2" class="part">	 	  
-			
-				akash
-					sfashdfjasdf
-					<br>
-					fasfsafs
-					<br>
-					afhasdfhas
-					<br>
-				
-		 </div>
-		 <br>
-		 <div id="part3" class="part">	 	  
-			
-				akash
-					sfashdfjasdf
-					<br>
-					fasfsafs
-					<br>
-					afhasdfhas
-					<br>
-				
-		 </div>
-	 </div>
-	 
-	 
-	 <div id="cancelorder">
-	 fasjfhdaskf haksjdhfkjasdhfksa
+	 </fieldset>
 	 
 	 </div>
 	 
-	 <div id="orderstatus">
-	 
-	 
-	 akash is a good 
-	 
-	 
-	 </div>
-	 
-	 </div>
-	 </div>
-	 
-	 </div>
+	
 	 
 	 
 	  
   <!-- container section start -->
 
     <!-- javascripts -->
+    
+    <!--  The New Order 1St Part -->
+    <script type="text/javascript" src="js/app.js"></script>
+     <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+    
     <script src="js/jquery.js"></script>
 	<script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
@@ -454,23 +491,30 @@
 	<script src="js/sparklines.js"></script>	
 	<script src="js/charts.js"></script>
 	<script src="js/jquery.slimscroll.min.js"></script>
+	<script src="jquery.js"></script> 
+   
+	
   <script>
   
   
   function change1()
   {
-  
+   document.getElementById("framework").innerHTML="";
    document.getElementById("framework").innerHTML=document.getElementById("neworder").innerHTML;
+   
+   
   }
    function change2()
   {
-  
-   document.getElementById("framework").innerHTML=document.getElementById("cancelorder").innerHTML;
+   document.getElementById("framework").innerHTML="";
+   document.getElementById("framework").innerHTML=document.getElementById("editorder").innerHTML;
+   
   }
     function change3()
   {
-  
+   document.getElementById("framework").innerHTML="";
    document.getElementById("framework").innerHTML=document.getElementById("orderstatus").innerHTML;
+   
   }
   
   

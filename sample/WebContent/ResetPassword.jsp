@@ -36,26 +36,26 @@ function validatePassword()
 	
 	if(pass1==""||pass2=="")
 	{
-		document.getElementById("agrv").innerHTML="Atleast one field is empty!";
+		document.getElementById("reset-error").innerHTML="Atleast one field is empty!";
 		return false;
 	}
     else{   
 			
 			if(pass1.length<8)
 			{
-				document.getElementById("agrv").innerHTML="Password should be minimum 8 characters";
+				document.getElementById("reset-error").innerHTML="Password should be minimum 8 characters";
 				return false;
 			}
 			else
 			{
 					if (pass1 != pass2) 
 					{
-						document.getElementById("agrv").innerHTML="Passwords Do Not Match!!!";
+						document.getElementById("reset-error").innerHTML="Passwords Do Not Match!!!";
 						return false;
 					}
 					else
 					{
-						document.getElementById("agrv").innerHTML="Password successfully reset";
+						document.getElementById("reset-error").innerHTML="Password successfully reset";
 						return true;
 					}
 				
@@ -106,7 +106,7 @@ function validatePassword()
             <p class="login-img"><i class="icon_lock_alt"></i></p>
             <div class="input-group">
               <span class="input-group-addon"><i class="icon_profile"></i></span>
-              <input type="text" class="form-control" placeholder="New Password"  name ="newPassword" id="new"  autofocus>
+              <input type="password" class="form-control" placeholder="New Password"  name ="newPassword" id="new"  autofocus>
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
@@ -120,7 +120,9 @@ function validatePassword()
 			String emp_name=(String)session.getAttribute("emp_name");
 			%>
             <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="return validatePassword();">Reset Password</button>
-            <span id="agrv" style="color:red"></span>            
+            <br>
+            <br>
+            <span id="reset-error" style="color:red"></span>            
             </div>
 		
       </form>

@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>`
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -22,7 +24,31 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
 	<link href="css/logintab.css" rel="stylesheet" />
+<script type="text/javascript">
 
+function validate()
+{
+
+
+	var userName = document.getElementById("userName").value;
+    var password = document.getElementById("password").value;
+
+	
+	
+	if(userName==""||password=="")
+	{
+		document.getElementById("login-error").innerHTML="Atleast one field is empty!";
+		return false;
+	}
+	var emp_id=<%= session.getAttribute("emp_id")%>;
+	
+		if(emp_id!= null && (<%= session.isNew() %>==false)){
+			alert(emp_id+" is your employee id. Please remember");
+			return true;
+		}
+}
+
+</script>
 
 </head>
 
@@ -62,11 +88,11 @@
             <p class="login-img"><i class="icon_lock_alt"></i></p>
             <div class="input-group">
               <span class="input-group-addon"><i class="icon_profile"></i></span>
-              <input type="text" class="form-control" placeholder="Username"  name ="userName" autofocus>
+              <input type="text" class="form-control" placeholder="Username"  name ="userName" id="userName" autofocus>
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Password" name ="password" >
+                <input type="password" class="form-control" placeholder="Password" name ="password" id="password">
             </div>
 			
             <!--  >label class="checkbox">
@@ -75,8 +101,12 @@
             <span class="pull-right"> <a href="ForgotPassword.jsp">&nbsp;&nbsp;&nbsp;Forgot Password?</a></span>
             <br>
             <br>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-            <button class="btn btn-info btn-lg btn-block" type="submit"><a href="emp_signup.jsp">New Employee? Register</a></button>
+            <button class="btn btn-primary btn-lg btn-block " type="submit" onclick="return validate();">Login</button>
+            
+            <a class="btn btn-info btn-lg btn-block " href="emp_signup.jsp" >New Employee? Register</a>
+        	<br>
+        	<br>
+        	<span id="login-error" style="color:red"></span>
         </div>
 		
       </form>

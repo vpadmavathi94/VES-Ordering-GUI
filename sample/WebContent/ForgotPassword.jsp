@@ -66,7 +66,7 @@
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Employee Name" name ="emp_name" >
+                <input type="text" class="form-control" placeholder="Employee Name" name ="emp_name" >
             </div>
 			
             <br>
