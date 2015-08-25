@@ -30,8 +30,10 @@ function register_form()
 	
 	
 	var name = document.getElementById("ename").value;
+	var email = document.getElementById("email").value;
    	var pwd1 = document.getElementById("pwd1").value;
     var pwd2 = document.getElementById("pwd2").value;
+    var regex_email = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
 
 	
 	
@@ -42,6 +44,9 @@ function register_form()
 			return false;
 		} else if (/\d/.test(name)) {
 			document.getElementById("signup-error").innerHTML = "Name should not contain numbers";
+			return false;
+		} else if (regex_email.test(email)) {
+			document.getElementById("signup-error").innerHTML = "Invalid Email Address !!";
 			return false;
 		}else if (pwd1 != pwd2) {
 			document.getElementById("signup-error").innerHTML = "Passwords Do Not Match!!!";
@@ -96,17 +101,16 @@ function register_form()
            
 			<table width=300 cellpadding="10">
             	<tr><td>Employee Name *</td><td><input type="text" id="ename" name="ename" /></td></tr>
+            	<tr><td>Employee Email ID *</td><td><input type="text" id="email" name="email" /></td></tr>
 				<tr><td>Password *</td><td><input type="password" id="pwd1" name="pwd1" /></td></tr>
 				<tr><td>Repeat Password *</td><td><input type="password" id="pwd2" name="pwd2" /></td></tr>
-            	<tr><td colspan=2><label class="checkbox"><input type="checkbox" id="agree" /><label>* I am an employee of ABC</label></td></tr>
+            	<tr><td colspan=2><label class="checkbox"><input type="checkbox" id="agree" /><label>* I am an employee of TwentyFifteen</label></td></tr>
 				<tr><td colspan=2><input class="btn btn-info btn-lg btn-block" type="submit" value="Sign Up" onclick="return register_form();" /></td></tr>
             </table>	
         
 	    </div>
-		
-		<br>
         <br>
-            <span id="signup-error" style="color:red"></span>         
+            <span id="signup-error" style="color:red" ></span>         
       </form>
 
     </div>

@@ -40,11 +40,11 @@ public class ResetPasswordServlet extends HttpServlet {
   		HttpSession session = request.getSession();
   		String emp_id=(String)session.getAttribute("emp_id");
 
-		boolean status=new ResetPasswordDAO().reset(newPassword, emp_id);
+		boolean status=new ResetPasswordDAO().reset(newPassword, emp_id,0);
         
 		if(status)
 		{
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("home.jsp");
 		}
 		else
 		{	

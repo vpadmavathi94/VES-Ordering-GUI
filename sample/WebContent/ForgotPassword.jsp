@@ -23,6 +23,40 @@
     <link href="css/style-responsive.css" rel="stylesheet" />
 	<link href="css/logintab.css" rel="stylesheet" />
 
+<script type="text/javascript">
+
+function register_form()
+{
+	
+	var id = document.getElementById("emp_id").value;
+	var name = document.getElementById("emp_name").value;
+	var email = document.getElementById("email").value;
+   	var regex_email = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+
+	
+	
+	
+
+	if (name == "" || id == "" || email == "") {
+			document.getElementById("signup-error").innerHTML = "Atleast one field is empty!";
+			return false;
+		} else if (/\d/.test(name)) {
+			document.getElementById("signup-error").innerHTML = "Name should not contain numbers";
+			return false;
+		} else if (regex_email.test(email)) {
+			document.getElementById("signup-error").innerHTML = "Invalid Email Address !!";
+			return false;
+		}else if (!(/\d/.test(name))) {
+			document.getElementById("signup-error").innerHTML = "ID must contain numbers only!!!";
+			return false;
+		} else {
+			
+			return true;
+		}
+
+	}
+</script>
+
 
 </head>
 
@@ -63,6 +97,11 @@
             <div class="input-group">
               <span class="input-group-addon"><i class="icon_profile"></i></span>
               <input type="text" class="form-control" placeholder="Employee ID"  name ="emp_id" autofocus>
+            
+            </div>
+          <div class="input-group">
+                <span class="input-group-addon"><i class="icon-envelope-l"></i></span>
+                  <input type="email" class="form-control" placeholder="Employee Email ID"  name ="email" >
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
@@ -71,7 +110,7 @@
 			
             <br>
             <br>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Search</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Send Mail</button>
             </div>
 		
       </form>

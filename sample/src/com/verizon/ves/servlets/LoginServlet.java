@@ -40,11 +40,15 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		
-		boolean status=new LoginDAO().checkLogin(userName, password);
+		int status=new LoginDAO().checkLogin(userName, password);
         
-		if(status)
+		if(status == 0)
 		{
 			response.sendRedirect("home.jsp");
+		}
+		else if(status == 1)
+		{
+			response.sendRedirect("ResetPassword.jsp");
 		}
 		else
 		{	

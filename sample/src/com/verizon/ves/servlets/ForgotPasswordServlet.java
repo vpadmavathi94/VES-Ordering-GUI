@@ -1,10 +1,9 @@
 package com.verizon.ves.servlets;
 
 import java.io.IOException;
-
-
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,13 +33,17 @@ public class ForgotPasswordServlet extends HttpServlet {
 	{
 		String emp_id=request.getParameter("emp_id");
 		String emp_name=request.getParameter("emp_name");
+		String email = request.getParameter("email");
 		HttpSession session = request.getSession();
 		session.setAttribute("emp_id",emp_id);
 		session.setAttribute("emp_name",emp_name);
-		boolean status =new ForgotPasswordDAO().forgot(emp_id, emp_name);
+		session.setAttribute("email",email);
+		boolean status =new ForgotPasswordDAO().forgot(emp_id, emp_name, email);
 		if(status)
 		{	
-				response.sendRedirect("ResetPassword.jsp");
+			ServletContext context = this.getServletContext();
+			RequestDispatcher dispatcher = context.getRequestDispatcher("/EmailSendingServlet");
+			dispatcher.forward(request, response);
 		}
 		else
 		{	

@@ -10,8 +10,9 @@ Website: http://geekslabs.com/
 @import url(line-icons.css);
 
 body {
-    color: #797979;
-    background: #eeeeee;
+    color: #000000;
+    
+	background: #ffffff ;    
     font-family: 'Lato', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
@@ -96,7 +97,7 @@ table tr th { color: #688a7e;}
 }
 
 .login-form {
-    max-width: 350px;
+        max-width: 350px;
 	background: #d5d7de;  
 	margin-bottom: 40px;
 	margin-top: 150px;
@@ -277,7 +278,7 @@ table tr th { color: #688a7e;}
     width: 180px;
     height: 100%;
     position: fixed;
-    background: #394a59;
+    background: #0665C7;
 }
 
 .nav-collapse.collapse {
@@ -357,12 +358,12 @@ ul.sidebar-menu li a span{
 }
 
 ul.sidebar-menu li a{
-    color: #d0d8df;
-    text-decoration: none;
+	color: #FFFFFF;
     display: block;
+    font-weight: bolder;
+    text-decoration: none;
     padding: 15px 0 15px 10px;
     font-size: 16px;
-    font-weight: 300;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -377,9 +378,10 @@ ul.sidebar-menu li a{
     top: 2px;
 }*/
 ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #2e3b46;
-    color: #fff;
+    background: rgba(101, 232, 97, 0.72);
+    color: #FFFFFF;
     display: block;
+	font-weight: bolder;
     /*border-radius: 4px;
     -webkit-border-radius: 4px;*/
     -webkit-transition: all 0.3s ease;
@@ -538,7 +540,7 @@ ul.sidebar-menu li.active a i {
 }
 .wrapper {
     display: inline-block;
-    margin-top: 60px;
+    margin-top: 10px;
     padding: 15px;
     width: 100%;
 }
@@ -546,7 +548,7 @@ ul.sidebar-menu li.active a i {
 a.logo {
     font-size: 22px;
     font-weight: 300;
-    color: #fed189;
+    color: #FFFFFF;
     float: left;
     margin-top: 15px;
     text-transform: uppercase;
@@ -846,8 +848,9 @@ div[data-role="editor-toolbar"] {
 }
 
 .top-nav .username {
-    font-size: 13px;
-    color: #bdbdbd;
+    font-size: 16px;
+    font-family: monospace;
+    color: #FFFFFF;
 }
 
 .top-nav ul.top-menu > li > a {
@@ -1056,9 +1059,10 @@ div[data-role="editor-toolbar"] {
   background-color : #e4e9eb;
 }
 .dark-bg {
-  color : #fff;
-  background : #1a2732;
-  background-color : #1a2732;
+  color: #fff;
+   
+    background-color: #0665C7;
+}
 }
 .facebook-bg {
   color: #fff;
@@ -4953,4 +4957,37 @@ span.customSelect.changed {
 }
 .customSelectInner {
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
+}
+#Frame{
+	padding-top: 10px;
+	height:100%;
+	width: 1300px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+#left{
+	padding-left:20px;
+	height:75%;
+	width:50%;
+	float: left;
+	
+}
+#right{
+
+	height:75%;
+	width:50%;
+	margin-left:50%;
+	
+}
+#bottom{
+	color: white;
+}
+
+.login-form1 {
+    max-width: 350px;
+	background: #d5d7de;  
+	margin-bottom: 40px;
+	margin-top: 150px;
+	margin-left: 300px;
+		
 }

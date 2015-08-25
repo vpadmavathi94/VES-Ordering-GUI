@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>`
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -10,7 +8,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Login Page 2 | Creative - Bootstrap 3 Responsive Admin Template</title>
+    <title>Enterprise</title>
 
     <!-- Bootstrap CSS -->    
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +22,14 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
 	<link href="css/logintab.css" rel="stylesheet" />
-<script type="text/javascript">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript">
 
 function validate()
 {
@@ -42,64 +47,61 @@ function validate()
 	}
 	var emp_id=<%= session.getAttribute("emp_id")%>;
 	
-		if(emp_id!= null && (<%= session.isNew() %>==false)){
-			alert(emp_id+" is your employee id. Please remember");
-			return true;
-		}
+		
 }
 
 </script>
-
 </head>
 
   <body class="login-img3-body">
 	<header id="header">
-      
+    
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                  
-                </div>
+                
+				<div class="collapse navbar-collapse navbar-right">
 				
-                <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>                        
+						
+                        <li class="active"><a href="index.jsp">Home</a></li>
+                        <li><a href="aboutUs.html">About Us</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="contactUs.html">Contact</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
 		
     </header><!--/header-->
-  
-    <div class="container">
-
-      <form class="login-form" action="LoginServlet"  method="post" align="right"> 
-	 
-        <div class="login-wrap">
-            <p class="login-img"><i class="icon_lock_alt"></i></p>
-            <div class="input-group">
-              <span class="input-group-addon"><i class="icon_profile"></i></span>
-              <input type="text" class="form-control" placeholder="Username"  name ="userName" id="userName" autofocus>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Password" name ="password" id="password">
-            </div>
-			
-            <!--  >label class="checkbox">
-                <input type="checkbox" value="remember-me">Remember me<span class="pull-right"> <a href="#">&nbsp;&nbsp;&nbsp;Forgot Password?</a></span>
-            </label -->
-            <span class="pull-right"> <a href="ForgotPassword.jsp">&nbsp;&nbsp;&nbsp;Forgot Password?</a></span>
-            <br>
+	<div id="Frame">
+	
+			<div id="left">
+					<div id="top">
+								<img  src="img/2015logowhite.png" style="width:200px;height:200px;" >
+					</div>
+					<div id="bottom">
+								<h2>ENTERPRISE SOLUTIONS</h2>
+								<h3>Succeeding in business is all about making connections,<br> and we do it for you.</h3>
+					</div>
+						
+			</div>
+			<div id="right">
+									
+					<form class="login-form" action="LoginServlet"  method="post" align="right"> 
+						 
+							<div class="login-wrap">
+								<p class="login-img"><i class="icon_lock_alt"></i></p>
+								<div class="input-group">
+								  <span class="input-group-addon"><i class="icon_profile"></i></span>
+								  <input type="text" class="form-control" placeholder="Username" name ="userName" id="userName" autofocus>
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon"><i class="icon_key_alt"></i></span>
+									<input type="password" class="form-control" placeholder="Password" name ="password" id="password">
+								</div>
+								
+								<span class="pull-right"> <a href="ForgotPassword.jsp">&nbsp;&nbsp;&nbsp;Forgot Password?</a></span>
+								<br>
             <br>
             <button class="btn btn-primary btn-lg btn-block " type="submit" onclick="return validate();">Login</button>
             
@@ -107,13 +109,11 @@ function validate()
         	<br>
         	<br>
         	<span id="login-error" style="color:red"></span>
-        </div>
-		
-      </form>
-
-    </div>
-
- 
+							</div>
+					
+					</form>	
+			</div>
+	</div>
 
   </body>
 </html>

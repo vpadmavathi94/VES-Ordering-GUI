@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+  
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -9,7 +12,17 @@
     <link rel="shortcut icon" href="img/favicon.png">
 
     <title>V Enterprise </title>
-    
+    <!-- Bootstrap CSS -->    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
     <!-- new order css -->
     <link href="css/default.css" rel="stylesheet">
 	<!--main page akash css-->
@@ -56,7 +69,7 @@
             </div>
 
             <!--logo start-->
-            <a href="index.jsp" class="logo">Verizon <span class="lite">   </span></a>
+            <a href="home.jsp" class="logo">Verizon <span class="lite">   </span></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -71,16 +84,16 @@
                 <!--  search form end -->                
             </div>
 
-            <div class="top-nav notification-row">                
+           <div class="top-nav notification-row">                
                 <!-- notificatoin dropdown start-->
                 <ul class="nav pull-right top-menu">
                     
                     <!-- task notificatoin start -->
                     <li id="task_notificatoin_bar" class="dropdown">
-                        <!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="icon-task-l"></i>
                             <span class="badge bg-important">6</span>
-                        </a> -->
+                        </a>
                         <ul class="dropdown-menu extended tasks-bar">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
@@ -161,11 +174,11 @@
                     </li>
                     <!-- task notificatoin end -->
                     <!-- inbox notificatoin start-->
-                    <!-- <li id="mail_notificatoin_bar" class="dropdown"> -->
-                        <!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <li id="mail_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-envelope-l"></i>
                             <span class="badge bg-important">5</span>
-                        </a> -->
+                        </a>
                         <ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
@@ -223,13 +236,13 @@
                                 <a href="#">See all messages</a>
                             </li>
                         </ul>
-                    <!-- </li> -->
+                    </li>
                     <!-- inbox notificatoin end -->
                     <!-- alert notification start-->
-                    <!-- <li id="alert_notificatoin_bar" class="dropdown"> -->
-                        <!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#"> -->
+                    <li id="alert_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
-                           <!--  <i class="icon-bell-l"></i>
+                            <i class="icon-bell-l"></i>
                             <span class="badge bg-important">7</span>
                         </a>
                         <ul class="dropdown-menu extended notification">
@@ -269,7 +282,7 @@
                                 <a href="#">See all notifications</a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
                     <!-- alert notification end-->
                     <!-- user login dropdown start-->
                     <li class="dropdown">
@@ -277,12 +290,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username"><%= session.getAttribute("userName")%></span>
+                            <span class="username">Jenifer Smith</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <!-- <li class="eborder-top">
+                            <li class="eborder-top">
                                 <a href="#"><i class="icon_profile"></i> My Profile</a>
                             </li>
                             <li>
@@ -293,16 +306,16 @@
                             </li>
                             <li>
                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
-                            <!-- <li>
+                            <li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
                             </li>
                             <li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-                            </li> -->
+                            </li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -346,97 +359,314 @@
           </div>
 		 
       </aside>
-	 <div id="framework" >
-	 
+	  
+	<div id="framework" >
+		
+		
+		
+		
+		<script>
+		document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
+		</script>
 	</div>
-	
+	<!--footer id="myfooter" class="header dark-bg"></footer--> 
 	<!--NEW ORDER-->
 	 <div id="neworder" class="onetime">
-				<fieldset>
-					<legend><center>New Order</center></legend>
-					
+				
+			<div id="left">	
+				<div id="new_form">
 					<form id="myAjaxRequestForm">
         <fieldset>
             <legend>Customer Information</legend>
  
                 <p>
-                    <label for="cust_name">Customer name:</label>
- 
-                    <input id="cust_name" type="text" name="cust_name" />
+                    <label for="cust_name">Customer sEmail:</label>
+                    <input id="cust_name" type="text" name="cust_name"  />
+					<input id="myButton" type="button" value="Validate" />
                 </p>
-                <p>
-                    <input id="myButton" type="button" value="Submit" />
-                </p>
+                
+                    
+                
         </fieldset>
     </form>
     <div id="anotherSection">
         <fieldset>
             
                  <div id="ajaxResponse">
-  <script>
-    document.getElementById("ajaxResponse").innerHTML='<object type="text/html" data="register.html" ></object>';
-    </script> 
+   <script>
+    document.getElementById("ajaxResponse").innerHTML='<object width="500" height="700" type="text/html" data="register.html" ></object>';
+    </script>  
                  </div>
+				 
+				 
+				 
+				 
         </fieldset>
     </div>  
-				</fieldset>
+	</div>
+	
+	
+				
+			</div>	
+			
+<div id ="right">
+<div id="product_display">
+	
+	
+	
+	<div id="product_left">
+	<img src="" />
+		
+	</div>
+	<div id="product_right">
+			<table  >
+			
+			<tr>
+			<a href="#"><td height="100px" width="100px">
+			
+			<div id="f1_container">
+<div id="f1_card" class="shadow">
+
+  <div  id="product1" class="front face">
+				
+				</div>
+  <div id="back1" class="back face center">
+   
+  </div>
+</div>
+</div>
+				
+			</td></a>
+			<a href="#"><td height="100px" width="100px">
+				<div id="f1_container">
+<div id="f1_card" class="shadow">
+ <a href="#">  <div id="product2" class="front face">
+				
+				</div>
+  <div id="back2" class="back face center">
+  
+  </div>
+</div>
+</div>
+			</td></a>
+			<a href="#"><td height="100px" width="100px">
+				<div id="f1_container">
+<div id="f1_card" class="shadow">
+  <a href="#"> <div id="product3" class="front face">
+				
+				</div>
+  <div id="back3" class="back face center">
+   
+  </div>
+</div>
+</div>
+			</td></a>
+			</tr>
+			
+			<tr>
+			<td></td>
+			<a href="#"><td height="100px" width="100px">
+				<div id="f1_container">
+<div id="f1_card" class="shadow">
+  <a href="#"> <div id="product4" class="front face">
+				
+				</div>
+  <div id="back4" class="back face center">
+    
+  </div>
+</div>
+</div>
+			</td></a>
+			<td height="100px" width="100px">
+			</td>
+			</tr>
+			
+			<tr>
+			<a href="#"><td height="100px" width="100px">
+			
+			<div id="f1_container">
+<div id="f1_card" class="shadow">
+
+  <div  id="product5" class="front face">
+				
+				</div>
+  <div id="back5" class="back face center">
+   
+  </div>
+</div>
+</div>
+				
+			</td></a>
+			<a href="#"><td height="100px" width="100px">
+				<div id="f1_container">
+<div id="f1_card" class="shadow">
+ <a href="#">  <div id="product6" class="front face">
+				
+				</div>
+  <div id="back6" class="back face center">
+  
+  </div>
+</div>
+</div>
+			</td></a>
+			<a href="#"><td height="100px" width="100px">
+				<div id="f1_container">
+<div id="f1_card" class="shadow">
+  <a href="#"> <div id="product7" class="front face">
+				
+				</div>
+  <div id="back7" class="back face center">
+   
+  </div>
+</div>
+</div>
+			</td></a>
+			</tr>
+			
+			</table>
+			</div>
+			
+			</div>
+	<div>
+		<table id="ProductList" border="1">
+		<tr>
+		<th></th>
+		<th>Product ID</th>
+		<th>Product Description</th>
+		<th>Price</th>
+		</tr>
+		
+		
+		
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr><tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		<tr>
+		<td><input type="radio" /></td>
+		<td>1</td>
+		<td>Access</td>
+		<td>$200</td>
+		</tr>
+		</table>
+		</div>
+</div>		
+				
 	 </div>
 	 
 	 <div id="editorder" class="onetime">
 	 <fieldset>
+	 
 	 <legend><center>Edit Order(Only for the Right To Buy Customer)</center></legend>
 	 
+	 <div id="editorder1" class="eo">
+	 <form id="editRequest">
+Order ID:<input type="text" name="orderID" id="orderID" />
+<input type="button" id="editbutton" name="editbutton" value="Search"/>
+    <div id="displaySection">
+        <fieldset>
+           
+                 <div id="editResponse"></div>
+        </fieldset>
+    </div> 
+    </form>
+	 </div>
 	 
-	 Lines <select >
-	 <option>1</option>
-	 <option>2</option>
-	 <option>3</option>
-	 </select>
+	 
+	 
+	 <div id ="complex" class="eo">
+	 Increase/Decrease No Of lines <br>
+	 
+	 <table>
+	 <tr>
+	 <td>
+	 Access               :</td><td><input type="text"  /></td>
+	 </tr>
+	 <tr>
+	 <td>PIP                  :</td><td><input type="text"  /></td>
+	 </tr>
+	 <tr>
+	 <td>
+	 Internet Dedicated   :</td><td><input type="text"  /></td>
+	 </tr>
+	 </table>
+	 </div>
+	 
 	 
 	 </fieldset>
 	 </div>
 	 
-	 <div id="orderstatus" class="onetime">
+	 <div id="orderstatus"  class="onetime">
 	 
-	 <fieldset>
-	 <legend>Order Status</legend>
-	 <div class="row">
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="icon_piechart"></i>ORDER STATUS</h3>
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						
-					</ol>
-				</div>
-			</div>
-            <div>
-				<form>
-					<pre>
-							Order ID : <input type="search" id="search" >		<input type="button" id="searchbutton"value="Search" onclick="visibility_div()">
-	
-					</pre>
-				</form>
-			<div id="details" style="visibility:hidden" >
-					<div >
-					<section class="panel"><canvas id="doughnut" height="200" width="300"></canvas> 
-					<table>
-					
-					<tr>
-					<td><b>Company Name : </b><div id="cmp_name"></div></td>		
-					<td><b>Status : </b><div id="status"></div></td>	
-					</tr>
-					
-					</table>
-					<br>
-																									
-							
-					</section>
-					
-					</div>
-			</div>
-			</div>
-			
-	 </fieldset>
+	 <script>
+    document.getElementById("orderstatus").innerHTML='<object  type="text/html" data="chart-chartjs.html"  width="800" height="800"></object>';
+    </script> 
+	 
 	 
 	 </div>
 	 
@@ -445,9 +675,11 @@
 	 
 	  
   <!-- container section start -->
-
+  <
+     <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <!-- javascripts -->
-    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <!--  The New Order 1St Part -->
     <script type="text/javascript" src="js/app.js"></script>
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
@@ -493,9 +725,23 @@
 	<script src="js/jquery.slimscroll.min.js"></script>
 	<script src="jquery.js"></script> 
    
-	
+	 <!-- javascripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- chartjs -->
+    <script src="assets/chart-master/Chart.js"></script>
+    <!-- custom chart script for this page only-->
+    <script src="js/chartjs-custom.js"></script>
+    <!--custome script for all page-->
+    <script src="js/scripts.js"></script>
   <script>
-  
+  function visibility_div(){
+	document.getElementById("details").style.visibility="visible";
+	}
   
   function change1()
   {

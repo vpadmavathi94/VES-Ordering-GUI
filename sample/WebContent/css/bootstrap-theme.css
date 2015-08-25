@@ -647,6 +647,18 @@ pre code {
   padding-left: 600px;
   padding-right: 15px;
 }
+.container2 {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 170px;
+  padding-right: 50px;
+}
+.container3 {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 500px;
+  padding-right: 100px;
+}
 .container:before,
 .container:after {
   content: " ";
@@ -3913,6 +3925,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: rgba(0, 0, 0, 0.42);
     border-color: #080808;
 }
+
 .navbar-inverse .navbar-brand {
   color: #d7d7d7;
 }
