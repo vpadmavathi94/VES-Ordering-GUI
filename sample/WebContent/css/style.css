@@ -68,6 +68,7 @@ table tr th { color: #688a7e;}
     color: #00a0df !important;
 }
 
+
 /*login page*/
 
 .login-body {
@@ -506,7 +507,7 @@ ul.sidebar-menu li.active a i {
 /*main content*/
 
 #main-content {
-    margin-left: 180px;
+    margin-left: 100px;
 }
 
 .header, .footer {
