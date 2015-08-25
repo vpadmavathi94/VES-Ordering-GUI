@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="editRequest">
-Order ID:<input type="text" name="orderID" id="orderID" />
+<form id="editRequest" action="EditOrderServlet">
+Contract ID:<input type="text" name="contractid" id="contractid" />
 <input type="button" id="editbutton" name="editbutton" value="Search"/>
     <div id="displaySection">
         <fieldset>

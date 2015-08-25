@@ -1,6 +1,6 @@
 package com.verizon.ves.ui;
 
-public abstract class Address {
+public class Address {
 	
 	 String streetname ;
 	 String zipcode ;
