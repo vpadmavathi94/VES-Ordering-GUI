@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Sign-up</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+<script type="text/javascript">
+function validate(obj)
+{
+if(obj.value=="")
+	{
+		switch(obj.name)
+		{
+		case "cname":
+			document.getElementById("namev").innerHTML="This field cannot be empty.";
+			break;
+		
+		case "ba":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+		case "pa":
+			document.getElementById("statev").innerHTML="This field cannot be empty.";
+			break;
+		case "ea":
+			document.getElementById("countryv").innerHTML="This field cannot be empty.";
+			break;
+		case "ca":
+			document.getElementById("zipv").innerHTML="This field cannot be empty.";
+			break;
+		
+		}
+	}
+//document.getElementById("namev").innerHTML="This field cannot be empty.";
+
+}
+</script>
+    </head>
+    <body>    
+        <form action="Register" class="register" method="post">
+            
+            <fieldset class="row1">
+                <legend>Basic Details</legend>
+				
+				
+				<table>
+					<tr>
+							<td>
+								Company Name *
+							</td>
+							<td>	
+							<input type="text" id="cname" name="cname" onblur="validate(this);"/> 
+							</td>	
+							<span id="namev"></span>
+					</tr>
+               
+					<tr>
+							<td>				
+								Street *`
+							</td>
+							<td>
+							<input type="text" class="long" name="ba" onblur="validate(this);" /><span id="streetv"></span>
+							</td>
+					</tr>
+					
+					<tr>
+							<td>
+								City *
+							</td>
+							<td>
+							<input type="text" class="long" name="ba" onblur="validate(this);" />
+							<span id="streetv"></span>
+							</td>
+					</tr>
+					
+					<tr>
+							<td>
+								State *
+							</td>
+							<td>
+							<input type="text" class="long" name="ba" onblur="validate(this);" /><span id="streetv"></span>
+							</td>
+					</tr>
+				
+					<tr>
+							<td>
+								Zipcode *
+							</td>
+							<td>
+								<input type="text" class="long" name="ba" onblur="validate(this);" /><span id="streetv"></span>
+							</td>
+					</tr>
+				
+                
+                
+                
+					<tr>
+							<td>
+								Email Address *
+							</td>
+							<td>
+								<input type="text" class="long" name="ea" onblur="validate(this);" /><span id="countryv"></span>
+							</td>
+					</tr>
+               
+					<tr>
+							<td>
+								Contact *
+							</td>
+							<td>
+								<input type="text" class="long" name="ca" onblur="validate(this);" /><span id="zipv"></span>
+							</td>
+                    
+                    </tr>
+                </table>
+                
+                
+                    <label class="obinfo">* Mandatory fields
+                    </label>           
+         
+            </fieldset>
+			
+           
+              
+               
+            
+           
+            <fieldset class="row4">
+                <legend>Terms and Mailing
+                </legend>
+                <p class="agreement">
+                    <input type="checkbox" value=""/>
+                    <label>*  I accept the <a href="#">Terms and Conditions</a></label>
+                </p>
+                <p class="agreement">
+                    <input type="checkbox" value=""/>
+                    <label>I want to receive personalized offers by your site</label>
+                </p>
+                
+            </fieldset>
+            <div><button class="button" type="submit" value="submit">Register &raquo;</button></div>
+        </form>
+    </body>
+</html>
+
+
+
+
+
