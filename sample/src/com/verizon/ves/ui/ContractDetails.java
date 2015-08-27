@@ -9,10 +9,10 @@ public class ContractDetails {
 	String fromdate;
 	String todate;
 	int discountpercentage;
-	int change;
+	String change;
 	public ContractDetails(String contractid, String modeltype,
 			String classofservice, String fromdate, String todate,
-			int discountpercentage, int change) {
+			int discountpercentage, String change) {
 		super();
 		this.contractid = contractid;
 		this.modeltype = modeltype;
@@ -58,10 +58,10 @@ public class ContractDetails {
 	public void setDiscountpercentage(int discountpercentage) {
 		this.discountpercentage = discountpercentage;
 	}
-	public int getChange() {
+	public String getChange() {
 		return change;
 	}
-	public void setChange(int change) {
+	public void setChange(String change) {
 		this.change = change;
 	}
 	@Override

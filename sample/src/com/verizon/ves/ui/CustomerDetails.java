@@ -13,6 +13,20 @@ public class CustomerDetails {
 	private String contactnumber;
 	private String dateofbirth;
 	
+	public CustomerDetails()  {
+		this.customertype = "";
+		this.customerid = "";
+		this.lineofbusiness = "";
+		this.fname = "";
+		this.lname = null;
+		this.connectionaddress = new Address("", "", "", "", 0, "");
+		this.billingaddress = new Address("", "", "", "", 0, "");
+		this.email = "";
+		this.contactnumber = "";
+		this.dateofbirth = null;
+		
+	}
+	
 	public CustomerDetails(String customertype, String customerid,
 			String fname, String lname,	Address connectionaddress,
 			Address billingaddress, String email,

@@ -5,11 +5,11 @@ public class Address {
 	public String zipcode;
 	public String city;
 	public String state;
-	public String stateid;
+	public int stateid;
 	public String country;
 	
 	public Address(String streetname, String zipcode, String city,
-			String state, String stateid, String country) {
+			String state, int stateid, String country) {
 		super();
 		this.streetname = streetname;
 		this.zipcode = zipcode;
@@ -51,11 +51,11 @@ public class Address {
 		this.state = state;
 	}
 
-	public String getStateid() {
+	public int getStateid() {
 		return stateid;
 	}
 
-	public void setStateid(String stateid) {
+	public void setStateid(int stateid) {
 		this.stateid = stateid;
 	}
 
