@@ -30,6 +30,11 @@ public class Services {
 	public void setQuantity(Quantity quantity) {
 		this.quantity = quantity;
 	}
+	@Override
+	public String toString() {
+		return "Services [servicecode=" + servicecode + ", servicename="
+				+ servicename + ", quantity=" + quantity + "]";
+	}
 	
 	
 	

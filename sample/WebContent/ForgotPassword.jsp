@@ -77,10 +77,10 @@ function register_form()
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>                        
+                        <li class="active"><a href="index.jsp">Home</a></li>
+                        <li><a href="aboutUs.html">About Us</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="contactUs.html">Contact</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->

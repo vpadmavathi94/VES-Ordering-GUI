@@ -1,4 +1,4 @@
-package com.verizon.ves.servlets;
+package com.verizon.ves.dao.servlets;
 
 import java.sql.Connection;
 

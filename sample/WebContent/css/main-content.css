@@ -31,13 +31,18 @@ input
   height: 100%;
   backface-visibility: hidden;
 }
+#editorder{
+	height:500px;
+}
 .eo
 {
+	height:100%;
 padding-top:30px;
 padding-left:70px;
 border:solid;
 border-width:1px; 
 }
+
 .face.back {
   display: block;
   transform: rotateY(180deg);
@@ -47,8 +52,12 @@ border-width:1px;
   text-align: center;
   background-color: #aaa;
 }
+#background{
+	background: url("../img/maxresdefault.jpg");
+}
 #framework
 {
+	    background: url("../img/maxresdefault.jpg");
   background-color:#ffffff;
   height:100%;
   margin-left:130px;
@@ -79,7 +88,7 @@ border-width:1px;
 }
 #product_display
 {
-	padding-top:100px;
+	padding-top:0px;
 	//margin-left:50%;
 	
 	width: 100%;

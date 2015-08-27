@@ -1,4 +1,4 @@
-package com.verizon.ves.servlets;
+package com.verizon.ves.dao.servlets;
 
 import java.util.Date;
 import java.util.Properties;

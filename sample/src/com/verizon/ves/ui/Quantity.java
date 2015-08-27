@@ -4,14 +4,13 @@ public class Quantity {
 	
 	int max;
 	int current;
-	int toprovision;
+		
 	
-	
-	public Quantity(int max, int current, int toprovision) {
+	public Quantity(int max, int current) {
 		super();
 		this.max = max;
 		this.current = current;
-		this.toprovision = toprovision;
+		
 	}
 	public int getMax() {
 		return max;
@@ -25,12 +24,12 @@ public class Quantity {
 	public void setCurrent(int current) {
 		this.current = current;
 	}
-	public int getToprovision() {
-		return toprovision;
+	@Override
+	public String toString() {
+		return "Quantity [max=" + max + ", current=" + current + "]";
 	}
-	public void setToprovision(int toprovision) {
-		this.toprovision = toprovision;
-	}
+	
+	
 
 	
 }

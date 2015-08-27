@@ -12,7 +12,7 @@ Website: http://geekslabs.com/
 body {
     color: #000000;
     
-	background: #ffffff ;    
+	background: url("../img/maxresdefault.jpg");  
     font-family: 'Lato', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
@@ -277,9 +277,13 @@ table tr th { color: #688a7e;}
 
 #sidebar {
     width: 180px;
-    height: 100%;
-    position: fixed;
-    background: #0665C7;
+height: 90.5%;
+position: fixed;
+background:  rgba(173, 224, 106, 0.39); 
+ margin-top: 65px;
+border: 1px;
+border-radius: 5px; 
+
 }
 
 .nav-collapse.collapse {
@@ -359,7 +363,7 @@ ul.sidebar-menu li a span{
 }
 
 ul.sidebar-menu li a{
-	color: #FFFFFF;
+	color: black;
     display: block;
     font-weight: bolder;
     text-decoration: none;
@@ -373,14 +377,17 @@ ul.sidebar-menu li a{
     transition: all 0.3s ease;
     border-right: 1px solid #D7D7D7;
     border-bottom: 1px solid #D7D7D7;
+    border: 1px;
+	border-radius: 5px; 
+    
 }
 /*ul.sidebar-menu li a i{
     position: relative;
     top: 2px;
 }*/
 ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: rgba(101, 232, 97, 0.72);
-    color: #FFFFFF;
+    background: #8CD06C;
+    color: black;
     display: block;
 	font-weight: bolder;
     /*border-radius: 4px;
@@ -851,7 +858,7 @@ div[data-role="editor-toolbar"] {
 .top-nav .username {
     font-size: 16px;
     font-family: monospace;
-    color: #FFFFFF;
+    color: #000000;
 }
 
 .top-nav ul.top-menu > li > a {
@@ -1062,7 +1069,7 @@ div[data-role="editor-toolbar"] {
 .dark-bg {
   color: #fff;
    
-    background-color: #0665C7;
+    background-color:  rgba(173, 224, 106, 0.48);
 }
 }
 .facebook-bg {
@@ -1082,6 +1089,7 @@ div[data-role="editor-toolbar"] {
 }
 /*----------------------	panel-----------------*/
 .panel {
+  background: transparent;
   border:none;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;

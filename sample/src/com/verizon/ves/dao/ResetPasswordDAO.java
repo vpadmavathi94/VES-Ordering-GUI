@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.verizon.ves.servlets.LocalDBConnectionPool;
+import com.verizon.ves.dao.servlets.LocalDBConnectionPool;
 
 public class ResetPasswordDAO {
 	

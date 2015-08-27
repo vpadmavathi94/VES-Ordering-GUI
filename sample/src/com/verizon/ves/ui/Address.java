@@ -1,74 +1,78 @@
 package com.verizon.ves.ui;
-
 public class Address {
 	
-	 String streetname ;
-	 String zipcode ;
-	 String city ;
-	 String state ;
-	 int stateid ;
-	 String country ; 
-	 
-	 
+	public String streetname;
+	public String zipcode;
+	public String city;
+	public String state;
+	public String stateid;
+	public String country;
 	
-	 public Address(String streetname, String zipcode, String city,
-			String state, int stateid, String country) {
+	public Address(String streetname, String zipcode, String city,
+			String state, String stateid, String country) {
 		super();
 		this.streetname = streetname;
 		this.zipcode = zipcode;
 		this.city = city;
 		this.state = state;
-		this.stateid = stateid;
+		this.stateid=stateid;
 		this.country = country;
 	}
 
 	public String getStreetname() {
-			return streetname;
-		}
+		return streetname;
+	}
 
-		public void setStreetname(String streetname) {
-			this.streetname = streetname;
-		}
+	public void setStreetname(String streetname) {
+		this.streetname = streetname;
+	}
 
-		public String getZipcode() {
-			return zipcode;
-		}
+	public String getZipcode() {
+		return zipcode;
+	}
 
-		public void setZipcode(String zipcode) {
-			this.zipcode = zipcode;
-		}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 
-		public String getCity() {
-			return city;
-		}
+	public String getCity() {
+		return city;
+	}
 
-		public void setCity(String city) {
-			this.city = city;
-		}
+	public void setCity(String city) {
+		this.city = city;
+	}
 
-		public String getState() {
-			return state;
-		}
+	public String getState() {
+		return state;
+	}
 
-		public void setState(String state) {
-			this.state = state;
-		}
+	public void setState(String state) {
+		this.state = state;
+	}
 
-		public String getCountry() {
-			return country;
-		}
+	public String getStateid() {
+		return stateid;
+	}
 
-		public void setCountry(String country) {
-			this.country = country;
-		}
+	public void setStateid(String stateid) {
+		this.stateid = stateid;
+	}
 
-		public int getStateid() {
-			return stateid;
-		}
+	public String getCountry() {
+		return country;
+	}
 
-		public void setStateid(int stateid) {
-			this.stateid = stateid;
-		}
-		
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	@Override
+	public String toString() {
+		return "Address [streetname=" + streetname + ", zipcode=" + zipcode
+				+ ", city=" + city + ", state=" + state + ", stateid="
+				+ stateid + ", country=" + country + "]";
+	}
+	
 	
 }
