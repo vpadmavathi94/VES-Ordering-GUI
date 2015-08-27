@@ -139,6 +139,9 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+	font-size:15px;
+	font-weight:bold;
+	    width: 80px;
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -268,7 +271,7 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
+  font-family: Arial;
   font-size: inherit;
   line-height: inherit;
 }
@@ -1496,10 +1499,11 @@ table th[class*="col-"] {
   }
 }
 fieldset {
-  padding: 0;
+  padding-left: 60px;
   margin: 0;
   border: 0;
 }
+
 legend {
   display: block;
   width: 100%;

@@ -68,25 +68,44 @@ var st=document.getElementById("search").value;
         
     ];
 
-   switch(st)
-   {
-	   case "0":
-	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
-		break;
-		case "1":
-	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData1);
-		break;
-		case "2":
-	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData2);
-		break;
-		case "3":
-	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData3);
-		break;
-		default:exit(0);
-		break;
-	   
-   }
+	var doughnutData4 = [
+	                     {
+	                         value : 50,
+	                         color : "#FF0066"
+	             			
+	                     },
+	                     {
+	                         value : 50,
+	                         color : "#FF0066"
+	             			
+	                     },
+	                     {
+	                         value : 50,
+	                         color : "#FF0066"
+	             	    },
+	                 ];
 
+	                switch(st)
+	                {
+	             	   case "0":
+	             	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
+	             		break;
+	             		case "1":
+	             	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData1);
+	             		break;
+	             		case "2":
+	             	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData2);
+	             		break;
+	             		case "3":
+	             	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData3);
+	             		break;
+	             		case "4":
+	             	       new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData4);
+	             		break;
+	             		default:exit(0);
+	             		break;
+	             	   
+	                }
  
    
 

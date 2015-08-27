@@ -102,13 +102,20 @@ $(document).ready(function() {
                  if(data.success){
                 	
                  $("#editResponse").html("");
-                 $("#editResponse").append("Increase/Decrease No Of lines <br><table> <tr> <td><table> <tr><td> Access               :</td><td><input type=\"text\"  /></td></tr><tr><td>PIP                  :</td><td><input type=\"text\"  /></td> </tr><tr><td> Internet Dedicated   :</td><td><input type=\"text\"  /></td> </tr> </table>");
-                 $("#editResponse").append("<input type=\"button\" value=\"Confirm\/>");
+                 $("#editResponse").append("<b>Order ID:</b> " + data.order_info.orderID + "<BR/>");
+                 $("#editResponse").append("<b>Company Name:</b> " + data.order_info.cname + "<BR/>");
+                
+                 $("#editResponse").append("<b>Contract type:</b> " + data.order_info.contype + "<BR/>");
+                 
+                 $("#editResponse").append("<b>Contract period:</b> " + data.order_info.conperiod + "<BR/>");
+                 
+                 $("#editResponse").append("<b>Maximum quantity:</b> " + data.order_info.maxquantity + "<BR/>");
+                 $("#editResponse").append("<b>Current quantity:</b> " + data.order_info.currquantity + "<BR/>");
                  }
                  //display error message
                  else {
            
-                     $("#editResponse").append("<b>Something wrong</b> ");
+                     $("#editResponse").append("<b>Something blah blah</b> ");
                    
 
            }

@@ -24,7 +24,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
     <!-- new order css -->
-    <!--  link href="css/default.css" rel="stylesheet"-->
+    <!--link href="css/default.css" rel="stylesheet"-->
 	<!--main page akash css-->
 	<link href="css/main-content.css" rel="stylesheet">
     <!-- Bootstrap CSS -->    
@@ -90,17 +90,15 @@
                     
                     <!-- task notificatoin start -->
                     
-                    <!-- task notificatoin end -->
-                    <!-- inbox notificatoin start-->
-                   
-                   
+                    <!-- alert notification end-->
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                            	<% String image_source = "img/"+session.getAttribute("userName")+".jpg"; %>
+                                <img alt="" src=<%=image_source %>>
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username"><%= session.getAttribute("userName")%></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -144,7 +142,7 @@
                       <a data-toggle="tab" class="" href="#neworder" onclick="change1()">
                           <i class="icon_house_alt"></i>
                           <span>New Order</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
+						  <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                   </li>
 				    
@@ -171,322 +169,254 @@
 		 
       </aside>
 	  
-	<div id="framework" >
-		
-		
-		
-		
-		<script>
-		document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
-		</script>
-	</div>
-	<!--footer id="myfooter" class="header dark-bg"></footer--> 
-	<!--NEW ORDER-->
-	 <div id="neworder" class="onetime">
-				
-			<div id="left">	
-				<div id="new_form">
-					<form id="myAjaxRequestForm">
-        <fieldset>
-            <legend>Customer Information</legend>
- 
-                <p>
-                    <label for="cust_name">Customer sEmail:</label>
-                    <input id="cust_name" type="text" name="cust_name"  />
-					<input id="myButton" type="button" value="Validate" />
-                </p>
-                
-                    
-                
-        </fieldset>
-    </form>
-    <div id="anotherSection">
-        <fieldset>
-            
-                 <div id="ajaxResponse">
-   <script>
-    document.getElementById("ajaxResponse").innerHTML='<object width="500" height="700" type="text/html" data="register.html" ></object>';
-    </script>  
-                 </div>
-				 
-				 
-				 
-				 
-        </fieldset>
-    </div>  
-	</div>
-	
-	
-				
-			</div>	
+		<div id="framework" >
 			
-<div id ="right">
-<div id="product_display">
-	
-	
-	
-	<div id="product_left">
-	<img src="" />
-		
-	</div>
-	<div id="product_right">
-			<table  >
 			
-			<tr>
-			<a href="#"><td height="100px" width="100px">
+				<script>
+				document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
+				</script>
 			
-			<div id="f1_container">
-<div id="f1_card" class="shadow">
-
-  <div  id="product1" class="front face">
-				
 				</div>
-  <div id="back1" class="back face center">
-   
-  </div>
-</div>
-</div>
+						<!--footer id="myfooter" class="header dark-bg"></footer--> 
+						<!--NEW ORDER-->
+						<div id="neworder" class="onetime">
+							
+							<div id="left">	
+								<div id="new_form">
+									<form id="myAjaxRequestForm" action="CheckNewUserServlet" method="post">
+										<fieldset>
+											<h2>Customer Information</h2>
+											<br>
+											<p>
+												<label for="cust_name">Customer's Email:</label>
+												<input id="email" type="text" name="email"  />&nbsp;&nbsp;&nbsp;
+												<input class="btn btn-success" type="submit" value="Validate" />
+											</p>
+										</fieldset>
+									</form>
+									<div id="anotherSection">
+										<fieldset>
+									
+											<div id="ajaxResponse" >
+												<script>
+													//document.getElementById("ajaxResponse").innerHTML='<object width="500" height="450" type="text/html" data="register.html" ></object>';
+													//$(document).ready(function(){
+														$("#ajaxResponse").load("register.jsp");
+													//});
+												</script>  
+											</div>
+										 
+											 <div id="provisioningResponse">
+												 <script>
+												 
+												 </script>
+											 </div>
+											 
+											 <div id="quoting">
+												<script>
+													//document.getElementById("quoting").innerHTML='<object width="500" height="300" type="text/html" data="quoting.html" ></object>';
+												   $("#quoting").load("quoting.html");
+												</script>  
+											 </div>		 
+										</fieldset>
+									</div>  
+					            </div>
+							</div>	
 				
-			</td></a>
-			<a href="#"><td height="100px" width="100px">
-				<div id="f1_container">
-<div id="f1_card" class="shadow">
- <a href="#">  <div id="product2" class="front face">
-				
-				</div>
-  <div id="back2" class="back face center">
-  
-  </div>
-</div>
-</div>
-			</td></a>
-			<a href="#"><td height="100px" width="100px">
-				<div id="f1_container">
-<div id="f1_card" class="shadow">
-  <a href="#"> <div id="product3" class="front face">
-				
-				</div>
-  <div id="back3" class="back face center">
-   
-  </div>
-</div>
-</div>
-			</td></a>
-			</tr>
-			
-			<tr>
-			<td></td>
-			<a href="#"><td height="100px" width="100px">
-				<div id="f1_container">
-<div id="f1_card" class="shadow">
-  <a href="#"> <div id="product4" class="front face">
-				
-				</div>
-  <div id="back4" class="back face center">
-    
-  </div>
-</div>
-</div>
-			</td></a>
-			<td height="100px" width="100px">
-			</td>
-			</tr>
-			
-			<tr>
-			<a href="#"><td height="100px" width="100px">
-			
-			<div id="f1_container">
-<div id="f1_card" class="shadow">
-
-  <div  id="product5" class="front face">
-				
-				</div>
-  <div id="back5" class="back face center">
-   
-  </div>
-</div>
-</div>
-				
-			</td></a>
-			<a href="#"><td height="100px" width="100px">
-				<div id="f1_container">
-<div id="f1_card" class="shadow">
- <a href="#">  <div id="product6" class="front face">
-				
-				</div>
-  <div id="back6" class="back face center">
-  
-  </div>
-</div>
-</div>
-			</td></a>
-			<a href="#"><td height="100px" width="100px">
-				<div id="f1_container">
-<div id="f1_card" class="shadow">
-  <a href="#"> <div id="product7" class="front face">
-				
-				</div>
-  <div id="back7" class="back face center">
-   
-  </div>
-</div>
-</div>
-			</td></a>
-			</tr>
-			
-			</table>
-			</div>
-			
-			</div>
-	<div>
-		<table id="ProductList" border="1">
-		<tr>
-		<th></th>
-		<th>Product ID</th>
-		<th>Product Description</th>
-		<th>Price</th>
-		</tr>
+							<div id ="right">
+								<div id="product_display">
+					
+									<div id="product_left">
+									<img src="" />
+										
+									</div>
+					
+					
+									<div id="product_right">
+										<table>
+							
+											<tr>
+												<td height="120px" width="120px">
+							
+													<div id="f1_container">
+														<div id="f1_card" class="shadow">
+															<a href="#" id="prod1" onClick="alert1(this);">
+																<div  id="product1" class="front face">
+									
+																</div>
+															
+															
+															<div id="back1" class="back face center">
+															
+															</div>
+															</a>
+														</div>
+													</div>
+								
+												</td>
+												
+												
+													<td height="120px" width="120px">
+														<div id="f1_container">
+															<div id="f1_card" class="shadow">
+																<a href="#" id="prod2" onClick="alert1(this);"> 
+																	<div id="product2" class="front face">
+								
+																	</div>
+																	<div id="back2" class="back face center">
+				  
+																	</div>
+																</a>
+															</div>
+														</div>
+													</td>
+													<td height="120px" width="120px">
+														<div id="f1_container">
+															<div id="f1_card" class="shadow">
+																<a href="#" id="prod3" onClick="alert1(this);"><div id="product3" class="front face">	</div>					
+																	
+																	<div id="back3" class="back face center"></div>
+				   
+																
+															</div></a>
+														</div>
+														</td>
+													
+											</tr>
+							
+											<tr>
+												<td></td>
+												<td height="120px" width="120px">
+													<div id="f1_container">
+														<div id="f1_card" class="shadow">
+															<a href="#" id="prod4" onClick="alert1(this);"> <div id="product4" class="front face"></div>
+																<div id="back4" class="back face center"></div>
+															
+									
+														</div></a>
+													</div>
+												</td>
+												<td height="120px" width="120px"></td>
+												
+											</tr>
+							
+											<tr>
+												<td height="100px" width="100px">
+												
+													<div id="f1_container">
+														<div id="f1_card" class="shadow">
+														<a href="#" id="prod5" onClick="alert1(this);">
+														    <div  id="product5" class="front face">
+																		
+															</div>
+														  <div id="back5" class="back face center">
+														   
+														  </div></a>
+														</div>
+													</div>
+													
+												</td>
+												<td height="120px" width="120px">
+													<div id="f1_container">
+														<div id="f1_card" class="shadow">
+																 <a href="#" id="prod6" onClick="alert1(this);">  <div id="product6" class="front face">
+																				
+																				</div>
+																  <div id="back6" class="back face center">
+																  
+																  </div></a>
+														</div>
+													</div>
+												</td>
+												
+												<td height="120px" width="120px">
+													<div id="f1_container">
+														<div id="f1_card" class="shadow">
+														  <a href="#" id="prod7" onClick="alert1(this);"> <div id="product7" class="front face">
+																		
+																		</div>
+														  <div id="back7" class="back face center">
+														   
+														  </div></a>
+														</div>
+													</div>
+												</td>
+											</tr>
+							
+										</table>
+									</div>
+							
+								</div>
+							
+							
+								<div id="PL">
+								
+								<!--	<table class="product-table" cellpadding="15px" >
+									<tr>
+									<td></td>
+									<td><h4><b>Product ID</b></h4></td>
+									<td><h4><b>Product Description</h4></td>
+									<td><h4><b>Price</b></h4></td>
+									<td><h4><b>Quantity</b></h4></td>
+									</tr>
+									</table>-->
+								</div>
+						
+							</div>		
+					
+						</div>
+		 
+						 <div id="editorder" class="onetime">
+							 <fieldset>
+							 
+								<h2>Edit Order(Only for the Right To Buy Customer)</h2>
+							 
+								<div id="editorder1" class="eo">
+									<form id="editRequest" action="EditOrderServlet" method="post">
+										Contract ID:&nbsp;&nbsp;&nbsp;<input type="text" name="orderID" id="orderID" />&nbsp;&nbsp;
+										<input type="button" id="editbutton" class="btn btn-success" name="editbutton" value="Search"/>
+										<div id="displaySection">
+										<fieldset>
+									   
+											 <div id="editResponse"></div>
+										</fieldset>
+										</div> 
+									</form>
+								</div>
+							 
+							 
+							 
+							 <div id ="complex" class="eo">
+							 
+							 
+								 <table>
+									 <tr>
+										 <td>
+											Increase No Of lines : &nbsp;</td><td><input type="text"  /></td>
+										 <td>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-success" type="submit" value="submit">Increase</button></td>
+									 </tr>
+								 </table>
+							 </div>
+			 
+			 
+							 </fieldset>
+						 </div>
+		 
+						 <div id="orderstatus"  class="onetime">
+						 
+							 <script>
+							document.getElementById("orderstatus").innerHTML='<object  type="text/html" data="chart-chartjs.html"  width="800" height="800"></object>';
+							</script> 
+						 
+						 
+						 </div>
+		 
 		
-		
-		
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr><tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		<tr>
-		<td><input type="radio" /></td>
-		<td>1</td>
-		<td>Access</td>
-		<td>$200</td>
-		</tr>
-		</table>
-		</div>
-</div>		
-				
-	 </div>
-	 
-	 <div id="editorder" class="onetime">
-	 <fieldset>
-	 
-	 <legend><center>Edit Order(Only for the Right To Buy Customer)</center></legend>
-	 
-	 <div id="editorder1" class="eo">
-	 <form id="editRequest">
-Order ID:<input type="text" name="orderID" id="orderID" />
-<input type="button" id="editbutton" name="editbutton" value="Search"/>
-    <div id="displaySection">
-        <fieldset>
-           
-                 <div id="editResponse"></div>
-        </fieldset>
-    </div> 
-    </form>
-	 </div>
-	 
-	 
-	 
-	 <div id ="complex" class="eo">
-	 Increase/Decrease No Of lines <br>
-	 
-	 <table>
-	 <tr>
-	 <td>
-	 Access               :</td><td><input type="text"  /></td>
-	 </tr>
-	 <tr>
-	 <td>PIP                  :</td><td><input type="text"  /></td>
-	 </tr>
-	 <tr>
-	 <td>
-	 Internet Dedicated   :</td><td><input type="text"  /></td>
-	 </tr>
-	 </table>
-	 </div>
-	 
-	 
-	 </fieldset>
-	 </div>
-	 
-	 <div id="orderstatus"  class="onetime">
-	 
-	 <script>
-    document.getElementById("orderstatus").innerHTML='<object  type="text/html" data="chart-chartjs.html"  width="800" height="800"></object>';
-    </script> 
-	 
-	 
-	 </div>
-	 
-	
-	 
-	 
+		 
+		 
 	  
   <!-- container section start -->
-  <
+  
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <!-- javascripts -->
@@ -494,7 +424,8 @@ Order ID:<input type="text" name="orderID" id="orderID" />
     <!--  The New Order 1St Part -->
     <script type="text/javascript" src="js/app.js"></script>
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
-    
+    <!--PCAT PRODUCT CATALOG-->
+    <script src="js/PCATurl.js" />
     <script src="js/jquery.js"></script>
 	<script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery-1.8.3.min.js"></script>
@@ -510,7 +441,7 @@ Order ID:<input type="text" name="orderID" id="orderID" />
     <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
     <script src="js/owl.carousel.js" ></script>
     <!-- jQuery full calendar -->
-    <<script src="js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+    <script src="js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
 	<script src="assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
     <!--script for this page only-->
     <script src="js/calendar-custom.js"></script>

@@ -50,7 +50,7 @@ public class OrderStatusServlet extends HttpServlet {
 			OrderHistory orderhistory = gson.fromJson(outputJson, OrderHistory.class);
 			String orderstatus = orderhistory.getOrderstatus();
 			session.setAttribute("orderstatus", orderstatus);
-//			response.sendRedirect(arg0);
+			response.sendRedirect("chart-chartjs.jsp");
 		}
 
 	}

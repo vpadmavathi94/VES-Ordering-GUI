@@ -56,9 +56,9 @@
 				</div>
 			</div>
             <div>
-				<form>
+				<form action="OrderStatusServlet" method="post">
 					<pre>
-							Order ID : <input type="search" id="search" >		<input type="button" id="searchbutton"value="Search" onclick="visibility_div()">
+							Order ID : <input type="search" id="search" >		<input type="button" class="btn btn-success" id="searchbutton"value="Search" onclick="visibility_div()">
 	
 					</pre>
 				</form>
@@ -68,8 +68,8 @@
 					<table>
 					
 					<tr>
-					<td><b>Company Name : </b><div id="cmp_name"></div></td>		
-					<td><b>Status : </b><div id="status"></div></td>	
+					<td><b>Company Name : </b><div id="cmp_name"></div></td></tr>		
+					<tr><td><b>Status : </b><div id="status"></div></td>	
 					</tr>
 					
 					</table>

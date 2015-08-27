@@ -28,12 +28,13 @@ public class CheckNewUserServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = request.getParameter("validateEmail");
+		String email = request.getParameter("email");
 		HttpSession session=request.getSession();
-		
+		System.out.println(email);
 		String emailJson = "{\"email\":\""+email+"\"}";
-		String profilePullURL = URL+"{"+email+"}";
-		String outputJson = new OrderManagementRestClient().callService(emailJson, profilePullURL);
+		String profilePullURL = URL+email;
+		String outputJson = "null";
+				new OrderManagementRestClient().callServiceGET(profilePullURL);
 		
 				
 		System.out.println(outputJson);
@@ -42,7 +43,7 @@ public class CheckNewUserServlet extends HttpServlet {
 		if(outputJson.equals("null"))
 		{
 			session.setAttribute("customertype", "new");
-//			response.sendRedirect(arg0);
+			response.sendRedirect("home.jsp");
 			
 		}
 		else
@@ -51,7 +52,7 @@ public class CheckNewUserServlet extends HttpServlet {
 			CustomerDetails customerdetails = new Gson().fromJson(outputJson, CustomerDetails.class); 
 			customerdetails.setCustomertype("registered");
 			session.setAttribute("customerdetails", customerdetails);
-//			response.sendRedirect(arg0);
+			response.sendRedirect("home.jsp");
 		}
 		
 	}
