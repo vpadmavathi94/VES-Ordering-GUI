@@ -2,218 +2,113 @@ package com.verizon.ves.ui;
 
 public class SwitchCaseClass {
 	
-	public String billingStateName(int bstateid) {
-		String bstate = null;
-		switch (bstateid) {
-		case 1:
-			bstate = "Alaska";
-			break;
+	public String StateName(String state) {
+		String stateid = null;
+		switch(state){
+		case "ALASKA":
+			   stateid="1";
+		break;
 
-		case 2:
-			bstate = "Arizona";
-			break;
+		case "ARIZONA":
+			   stateid="2";
+		break;
 
-		case 3:
-			bstate = "California";
-			break;
+		case "CALIFORNIA":
+			   stateid="3";
+		break;
 
-		case 4:
-			bstate = "Colorado";
-			break;
+		case "COLORADO":
+			   stateid="4";
+		break;
 
-		case 5:
-			bstate = "Florida";
-			break;
+		case "FLORIDA":
+			   stateid="5";
+		break;
 
-		case 6:
-			bstate = "Georgia";
-			break;
+		case "GEORGIA":
+			   stateid="6";
+		break;
 
-		case 7:
-			bstate = "Hawaii";
-			break;
+		case "HAWAII":
+			   stateid="7";
+		break;
 
-		case 8:
-			bstate = "Indiana";
-			break;
+		case "INDIANA":
+			   stateid="8";
+		break;
 
-		case 9:
-			bstate = "Kentucky";
-			break;
+		case "KENTUCKY":
+			   stateid="9";
+		break;
 
-		case 10:
-			bstate = "Michigan";
-			break;
+		case "MICHIGAN":
+			   stateid="10";
+		break;
 
-		case 11:
-			bstate = "Mississippi";
-			break;
+		case "MISSISSIPPI":
+			   stateid="11";
+		break;
 
-		case 12:
-			bstate = "Missouri";
-			break;
+		case "MISSOURI":
+			   stateid="12";
+		break;
 
-		case 13:
-			bstate = "New Hamsphire";
-			break;
+		case "NEW HAMSPHIRE":
+			   stateid="13";
+		break;
 
-		case 14:
-			bstate = "New Jersy";
-			break;
+		case "NEW JERSEY":
+			   stateid="14";
+		break;
 
-		case 15:
-			bstate = "New Mexico";
-			break;
+		case "NEW MEXICO":
+			   stateid="15";
+		break;
 
-		case 16:
-			bstate = "New York";
-			break;
+		case "NEW YORK":
+			   stateid="16";
+		break;
 
-		case 17:
-			bstate = "Oklahoma";
-			break;
+		case "OKLAHOMA":
+			   stateid="17";
+		break;
 
-		case 18:
-			bstate = "Oregon";
-			break;
+		case "OREGON":
+			   stateid="18";
+		break;
 
-		case 19:
-			bstate = "Pennsylvania";
-			break;
+		case "PENNSYLVANIA":
+			   stateid="19";
+		break;
 
-		case 20:
-			bstate = "Tennesse";
-			break;
+		case "TENNESSE":
+			   stateid="20";
+		break;
 
-		case 21:
-			bstate = "Texas";
-			break;
+		case "TEXAS":
+			   stateid="21";
+		break;
 
-		case 22:
-			bstate = "Vermont";
-			break;
+		case "VERMONT":
+			   stateid="22";
+		break;
 
-		case 23:
-			bstate = "Virginia";
-			break;
+		case "VIRGINIA":
+			   stateid="23";
+		break;
 
-		case 24:
-			bstate = "Washington";
-			break;
+		case "WASHINGTON":
+			   stateid="24";
+		break;
 
-		case 25:
-			bstate = "West Virginia";
-			break;
-		}
-		return bstate;
+		case "WEST VIRGINIA":
+			   stateid="25";
+		break;
+	}	
+		return stateid;
 	}
 
-	public String connectionStateName(int cstateid) {
-		String cstate = null;
-		switch(cstateid){
-		case 1:
-			 cstate="Alaska";
-		break;
-
-		case 2:
-			 cstate="Arizona";
-		break;
-
-		case 3:
-			 cstate="California";
-		break;
-
-		case 4:
-			 cstate="Colorado";
-		break;
-
-		case 5:
-			 cstate="Florida";
-		break;
-
-		case 6:
-			 cstate="Georgia";
-		break;
-
-		case 7:
-			 cstate="Hawaii";
-		break;
-
-		case 8:
-			 cstate="Indiana";
-		break;
-
-		case 9:
-			 cstate="Kentucky";
-		break;
-
-		case 10:
-			 cstate="Michigan";
-		break;
-
-		case 11:
-			 cstate="Mississippi";
-		break;
-
-		case 12:
-			 cstate="Missouri";
-		break;
-
-		case 13:
-			 cstate="New Hamsphire";
-		break;
-
-		case 14:
-			 cstate="New Jersy";
-		break;
-
-		case 15:
-			 cstate="New Mexico";
-		break;
-
-		case 16:
-			 cstate="New York";
-		break;
-
-		case 17:
-			 cstate="Oklahoma";
-		break;
-
-		case 18:
-			 cstate="Oregon";
-		break;
-
-		case 19:
-			 cstate="Pennsylvania";
-		break;
-
-		case 20:
-			 cstate="Tennesse";
-		break;
-
-		case 21:
-			 cstate="Texas";
-		break;
-
-		case 22:
-			 cstate="Vermont";
-		break;
-
-		case 23:
-			 cstate="Virginia";
-		break;
-
-		case 24:
-			 cstate="Washington";
-		break;
-
-		case 25:
-			 cstate="West Virginia";
-		break;
-	}
-		
-		return cstate;
-	}
+	
 	public String serviceName(String servicecode){
 	
 		String servicename = null;

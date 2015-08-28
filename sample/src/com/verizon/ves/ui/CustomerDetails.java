@@ -3,8 +3,7 @@ package com.verizon.ves.ui;
 public class CustomerDetails {
 	
 	private String customertype;
-	private String customerid;
-	private String lineofbusiness;	
+	private String customerid;	
 	private String fname;
 	private String lname;		
 	private Address connectionaddress;
@@ -16,11 +15,10 @@ public class CustomerDetails {
 	public CustomerDetails()  {
 		this.customertype = "";
 		this.customerid = "";
-		this.lineofbusiness = "";
 		this.fname = "";
 		this.lname = null;
-		this.connectionaddress = new Address("", "", "", "", 0, "");
-		this.billingaddress = new Address("", "", "", "", 0, "");
+		this.connectionaddress = new Address("", "", "", "select", 0, "");
+		this.billingaddress = new Address("", "", "", "select", 0, "");
 		this.email = "";
 		this.contactnumber = "";
 		this.dateofbirth = null;
@@ -34,7 +32,6 @@ public class CustomerDetails {
 		super();
 		this.customertype = customertype;
 		this.customerid = customerid;
-		this.lineofbusiness = "ves";
 		this.fname = fname;
 		this.lname = null;
 		this.connectionaddress = connectionaddress;
@@ -60,15 +57,7 @@ public class CustomerDetails {
 		this.customerid = customerid;
 	}
 
-	public String getLineofbusiness() {
-		return lineofbusiness;
-	}
-
-	public void setLineofbusiness(String lineofbusiness) {
-		this.lineofbusiness = lineofbusiness;
-	}
-
-	public String getFname() {
+		public String getFname() {
 		return fname;
 	}
 
@@ -127,8 +116,7 @@ public class CustomerDetails {
 	@Override
 	public String toString() {
 		return "CustomerDetails [customertype=" + customertype
-				+ ", customerid=" + customerid + ", lineofbusiness="
-				+ lineofbusiness + ", fname=" + fname + ", lname=" + lname
+				+ ", customerid=" + customerid + ", fname=" + fname + ", lname=" + lname
 				+ ", connectionaddress=" + connectionaddress
 				+ ", billingaddress=" + billingaddress + ", email=" + email
 				+ ", contactnumber=" + contactnumber + ", dateofbirth="

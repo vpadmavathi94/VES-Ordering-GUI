@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="com.verizon.ves.webservice.servlets.*, com.verizon.ves.ui.*"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,6 +58,39 @@
       <script src="js/respond.min.js"></script>
       <script src="js/lte-ie7.js"></script>
     <![endif]-->
+    
+    
+        <script type="text/javascript" src="jspdf/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jspdf/jspdf.js"></script>
+<script type="text/javascript" src="jspdf/jspdf.plugin.standard_fonts_metrics.js"></script> 
+<script type="text/javascript" src="jspdf/jspdf.plugin.split_text_to_size.js"></script>               
+<script type="text/javascript" src="jspdf/jspdf.plugin.from_html.js"></script>
+<script type="text/javascript" src="jspdf/FileSaver.js"></script>
+ <script>
+     function demoFromHTML() {
+         var doc = new jsPDF('p', 'in', 'letter');
+         var source = $('#table').first();
+         var specialElementHandlers = {
+             '#bypassme': function(element, renderer) {
+                 return true;
+             }
+         };
+
+         doc.fromHTML(
+            $('#table').get(0), // [Refer Exact code tutorial][2]HTML string or DOM elem ref.
+             0.5,    // x coord
+             0.5,    // y coord
+             {
+                 'width': 7.5, // max width of content on PDF
+                 'elementHandlers': specialElementHandlers
+             });
+
+		var fileName =  <%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getOrderid() %> + ".pdf";
+         doc.save(fileName);
+         location.href="EmailAttachmentSendingServlet";
+    }
+</script>
+    
   </head>
 
   <body>
@@ -178,77 +213,82 @@
 	<div id="table">
 		<table id="order-table" cellpadding="7px">
 		
-		<tr><td>Company Name:</td>
-			<td></td>
+		<tr>
+		<td>Company Name:</td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getFname() %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Connection Address:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getConnectionaddress() %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Billing Address:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getBillingaddress() %></td>
 		</tr>
 		
 		<tr>
 		<td>E-Mail Id:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getEmail() %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Contact No.</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getCustomerdetails().getContactnumber() %></td>
 		</tr>
 		
+		<tr>
+		<td>Order Id:</td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getOrderid() %></td>
+		</tr>
 		
 		<tr>
 		<td>Date of Booking:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getDateofbooking() %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Due Date:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getDuedate() %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Services:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getOrderdetails().getServices()[0] %></td>
 		</tr>
 		
 		
 		<tr>
 		<td>Model Type:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getModeltype() %></td>
 		<tr>
 		
 		
 		<tr>
 		<td>Class of Service:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getClassofservice() %></td>
 		</tr>
 		
 		<tr>
 		<td>Contract Id:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getContractid() %></td>
 		</tr>
 		
 		<tr>
 		<td>Contract Period:</td>
-		<td></td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getFromdate() + "to" + ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getTodate() %></td>
 		</tr>
 		
 		
 		<tr>
-		<td>Discount % :</td>
-		<td></td>
+		<td>Discount Percentage :</td>
+		<td><%= ((Ordering)session.getAttribute("ordering")).getContractdetails()[0].getDiscountpercentage() %></td>
 		</tr>
 		</table>
 	</div>
@@ -256,7 +296,9 @@
 		<table id="print-button">
 		<tr>
 		<td>
-		<input type="button" class="btn btn-success" value ="Print"/>
+		<!-- input type="button" class="btn btn-success" value ="Print"/> -->
+		<a class="btn btn-success" href="javascript:demoFromHTML()">Generate Contract</a> 
+		
 		</td>
 		</tr>
 		</table>

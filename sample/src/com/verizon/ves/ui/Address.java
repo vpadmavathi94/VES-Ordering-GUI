@@ -9,13 +9,13 @@ public class Address {
 	public String country;
 	
 	public Address(String streetname, String zipcode, String city,
-			String state, int stateid, String country) {
+			String state, int bstateid, String country) {
 		super();
 		this.streetname = streetname;
 		this.zipcode = zipcode;
 		this.city = city;
 		this.state = state;
-		this.stateid=stateid;
+		this.stateid=bstateid;
 		this.country = country;
 	}
 

@@ -1,4 +1,4 @@
-package com.verizon.ves.dao.servlets;
+package com.verizon.ves.mail;
 
 import java.io.IOException;
 import java.util.Random;
@@ -19,7 +19,7 @@ import com.verizon.ves.dao.ResetPasswordDAO;
  * @author www.codejava.net
  * 
  */
-@WebServlet("/EmailSendingServlet")
+//@WebServlet("/EmailSendingServlet")
 public class EmailSendingServlet extends HttpServlet {
 	/**
 	 * 

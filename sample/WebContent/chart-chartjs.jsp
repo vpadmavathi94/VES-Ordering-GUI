@@ -39,13 +39,7 @@
   <body>
   <!-- container section start -->
   <!--section id="container" class=""-->
-     
-      
-      
-
-
-     
-
+  
       <!--main content start-->      
       <section id="main-content">
         <section class="wrapper">
@@ -58,20 +52,29 @@
             <div>
 				<form action="OrderStatusServlet" method="post">
 					<pre>
-							Order ID : <input type="search" id="search" >		<input type="button" class="btn btn-success" id="searchbutton"value="Search" onclick="visibility_div()">
-	
+							Order ID : <input type="submit" id="orderid" >		<input type="button" class="btn btn-success" id="searchbutton"value="Search" onclick="visibility_div()">
+							
+							<%
+							if(((String)session.getAttribute("querying")).equals("success"))
+							{
+								int orderstatus =Integer.parseInt((String)session.getAttribute("orderstatus"));
+								
+							%>
+								<input type="text" id="search" style="visibility:hidden" value=<%= orderstatus %> />
+							<%
+							}
+			 				%>
+							
 					</pre>
 				</form>
+			
 			<div id="details" style="visibility:hidden" >
 					<div >
 					<section class="panel"><canvas id="doughnut" height="200" width="300"></canvas> 
 					<table>
-					
 					<tr>
-					<td><b>Company Name : </b><div id="cmp_name"></div></td></tr>		
-					<tr><td><b>Status : </b><div id="status"></div></td>	
+					<td><b>Status : </b><div id="status"></div></td>	
 					</tr>
-					
 					</table>
 					<br>
 																									

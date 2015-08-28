@@ -59,17 +59,17 @@ public class NewOrderServlet extends HttpServlet {
 		String bstreetname = request.getParameter("bstreetname");
 		String bzipcode = request.getParameter("bzipcode");
 		String bcity = request.getParameter("bcity");		
-		int bstateid = Integer.parseInt(request.getParameter("bstateid"));
-		String bstate = new SwitchCaseClass().billingStateName(bstateid);
-		String bcountry = request.getParameter("bcountry");
+		String bstate = request.getParameter("bstate");
+		int bstateid = Integer.parseInt(new SwitchCaseClass().StateName(bstate));
+		String bcountry = "USA";
 		Address billingaddress = new Address(bstreetname,bzipcode,bcity,bstate,bstateid,bcountry);
 		
 		String cstreetname = request.getParameter("cstreetname");
 		String czipcode = request.getParameter("czipcode");
 		String ccity = request.getParameter("ccity");		
-		int cstateid  = Integer.parseInt(request.getParameter("cstateid"));
-		String cstate = new SwitchCaseClass().connectionStateName(cstateid);
-		String ccountry = request.getParameter("ccountry");
+		String cstate = request.getParameter("cstate");
+		int cstateid = Integer.parseInt(new SwitchCaseClass().StateName(cstate));
+		String ccountry = "USA";
 		Address connectionaddress = new Address(cstreetname,czipcode,ccity,cstate,cstateid,ccountry);
 		
 		String customertype ="new";
@@ -84,7 +84,7 @@ public class NewOrderServlet extends HttpServlet {
 		
 		
 		int max = Integer.parseInt((String)request.getParameter("max"));
-		int current = Integer.parseInt((String)request.getParameter("current"));
+		int current = (int)(0.25*max);
 		Quantity quantity = new Quantity(max,current);
 		
 		Services[] services = new Services[1];
@@ -138,12 +138,12 @@ public class NewOrderServlet extends HttpServlet {
 		//write if else for outputJson
 		if(outputJson.equals("null"))
 		{
-			session.setAttribute("ordering", "failed");
+			session.setAttribute("orderingstatus", "failed");
 		}
 		
 		else
 		{
-			session.setAttribute("ordering", "success");
+			session.setAttribute("orderingstatus", "success");
 			
 			EnterpriseOrder enterpriseOrder=gson.fromJson(outputJson, EnterpriseOrder.class);
 			customerid = enterpriseOrder.getCustomerid();
@@ -157,7 +157,7 @@ public class NewOrderServlet extends HttpServlet {
 			ordering.getOrderdetails().setOrderid(orderid);
 			
 			session.setAttribute("ordering", ordering);
-//			response.sendRedirect("OrderSummary.jsp");
+			response.sendRedirect("ordersummary.jsp");
 			
 			
 			

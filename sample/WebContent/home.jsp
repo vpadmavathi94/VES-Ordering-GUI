@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
-  
+ <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/favicon.png">F
 
     <title>V Enterprise </title>
     <!-- Bootstrap CSS -->    
@@ -173,7 +173,8 @@
 			
 			
 				<script>
-				document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
+					
+					document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
 				</script>
 			
 				</div>
@@ -201,7 +202,7 @@
 												<script>
 													//document.getElementById("ajaxResponse").innerHTML='<object width="500" height="450" type="text/html" data="register.html" ></object>';
 													//$(document).ready(function(){
-														$("#ajaxResponse").load("register.jsp");
+														$("#ajaxResponse").load("registerform.jsp");
 													//});
 												</script>  
 											</div>

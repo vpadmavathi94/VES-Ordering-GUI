@@ -82,7 +82,7 @@ if(obj.value=="")
 								Contract Type *`
 							</td>
 							<td>
-							<select id="contract_type">
+							<select id="modeltype" name="modeltype">
 							<option value="select">--Select Contract Type--</option>
 							<option>Right To Buy</option>
 							<option>Transactional</option>
@@ -95,7 +95,7 @@ if(obj.value=="")
 								Class Of Service *
 							</td>
 							<td>
-							<select id="class_type">
+							<select id="classofservice" name="classofservice">
 							<option value="select">--Select Class Of Service--</option>
 							<option>Platinum</option>
 							<option>Gold</option>
@@ -107,12 +107,23 @@ if(obj.value=="")
 							</td>
 					</tr>
 					
+					<tr>
+							<td>
+								Discount Percentage *
+							</td>
+							<td>
+							<input type="text" name="discountpercentage" id="discountpercentage" />
+							<span id="streetv"></span>
+							</td>
+						</tr>
+					
+					
 						<tr>
 							<td>
 								Contract Start Date *
 							</td>
 							<td>
-							<input type="date" name="datefrom" />
+							<input type="date" name="fromdate" id="fromdate"/>
 							<span id="streetv"></span>
 							</td>
 						</tr>
@@ -123,10 +134,12 @@ if(obj.value=="")
 								Contract End Date *
 							</td>
 							<td>
-							<input type="date" name="dateto" />
+							<input type="date" name="todate" id="todate" />
 							<span id="streetv"></span>
 							</td>
 						</tr>
+						
+						
 					
 					
 				

@@ -26,12 +26,13 @@ function alert1(temp)
 	
 	alert(service);
 		//var str="http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("state").value+"&"+service;
-alert("http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("pstate").value+"&"+service);
-		dataString="json";
+	//alert("http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("pstate").value+"&"+service);
+		dataString="pstate="+document.getElementById("pstate").value+ "&pService="+service;
 		//alert(document.getElementById("pstate").value);
+		alert(dataString);
 		$.ajax({
             type: "POST",
-            url: "http://192.168.1.64:4782/PCatServiceCatalog/api/VES/"+document.getElementById("pstate").value+"&"+service,
+            url: "CallPCatServiceCatalog",
             data: dataString,
             dataType: "json",
             
@@ -39,22 +40,23 @@ alert("http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document
             success: function( data, textStatus, jqXHR) {
             	alert("helo akash");
                  $("#PL").html("");
-                 // console.log( data );
+                  console.log( data );
                  str1 = JSON.stringify(data);
                  var obj=JSON.parse(str1);
                  alert(str1);
                 // console.log(str1);
-               //  console.log( obj.products);
+                // alert( obj.Product_Details[0].Product_ID.value);
                  //alert(obj.products[1].product_name);
                  var radio="<input type=\"radio\" name=\"product\" value=\"";
                  var radio_next="\"/>";
                  var table_head="<table cellpadding=\"15px\" class=\"product-table\"><tr><td>Select</td><td>Product ID</td><td>Product Name</td><td>Product Description</td><td>Cost</td></tr>";
                  //alert(obj.products.length);
                  med="";
-             for(var i=0;i<obj.products.length;i++)
+                 if(service=="access"|| service=="pip" || service=="internetdedicated"){
+             for(var i=0;i<obj.Product_Details.length;i++)
             	 {
-            	// alert(i);
-                med=med+"<tr><td>"+radio+obj.products[i].product_id+radio_next+"</td><td>"+obj.products[i].product_id+"</td><td>"+obj.products[i].product_name+"</td><td>"+obj.products[i].product_desc+"</td><td>"+obj.products[i].cost+"</td></tr>";
+            	 alert(i);
+                med=med+"<tr><td>"+radio+obj.Product_Details[i].Product_ID.value+radio_next+"</td><td>"+obj.Product_Details[i].Product_ID.value+"</td><td>"+obj.Product_Details[i].Product_Name.value+"</td><td>"+obj.Product_Details[i].Product_Description.value+"</td><td>"+obj.Product_Details[i].Cost.value;
               //$("#PL").append(obj.products[i].product_id);
              // $("#PL").append("</td><td>"+obj.products[i].product_name);
              // $("#PL").append(obj.products[i].product_name);
@@ -71,7 +73,33 @@ alert("http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document
             //  $("#PL").append("<br/>Parsed data<br/>")
                 //$("#PL").append(obj.product_id);
               
+                 } 
+                 else
+                	 {
+                	 alert("else check");
+                	 for(var i=0;i<obj.Bundle_Details.length;i++)
+                	 {
+                	 alert(i);
+                    med=med+"<tr><td>"+radio+obj.Bundle_Details[i].Bundle_Id.value+radio_next+"</td><td>"+obj.Bundle_Details[i].Bundle_Id.value+"</td><td>"+" "+"</td><td>"+obj.Bundle_Details[i].Bundle_Desc.value+"</td><td>"+obj.Bundle_Details[i].Bundle_Cost.value;
+                  //$("#PL").append(obj.products[i].product_id);
+                 // $("#PL").append("</td><td>"+obj.products[i].product_name);
+                 // $("#PL").append(obj.products[i].product_name);
+                 // $("#PL").append("</td><td>"+obj.products[i].product_desc);
+                //  $("#PL").append(obj.products[i].product_desc);
+                  //$("#PL").append("</td><td>"+obj.products[i].cost);
+                  //$("#PL").append(obj.products[i].cost);
+               //   $("#PL").append("</td></tr>");
+                	 } 
+                 $("#PL").append(table_head+med+"</table>");
                  
+                
+                   // alert(obj.products[0]);
+                //  $("#PL").append("<br/>Parsed data<br/>")
+                    //$("#PL").append(obj.product_id);
+                  
+                     
+                	
+                	 }
                  
             },
             

@@ -13,12 +13,13 @@ import com.google.gson.Gson;
 import com.verizon.ves.restclient.OrderManagementRestClient;
 import com.verizon.ves.ui.CustomerDetails;
 import com.verizon.ves.ui.Ordering;
+import com.verizon.ves.ui.ProfilePull;
 
 
 @WebServlet("/CheckNewUserServlet")
 public class CheckNewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String URL = "http://192.168.1.27:8080/OrderManagement/rest/om/profilePull/email/";  
+	private static final String URL = "http://192.168.1.19:8080/OrderManagement/rest/om/profilePull/email/";  
    
     public CheckNewUserServlet() {
         super();
@@ -30,11 +31,10 @@ public class CheckNewUserServlet extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		HttpSession session=request.getSession();
-		System.out.println(email);
+		//System.out.println(email);
 		String emailJson = "{\"email\":\""+email+"\"}";
 		String profilePullURL = URL+email;
-		String outputJson = "null";
-				new OrderManagementRestClient().callServiceGET(profilePullURL);
+		String outputJson = new OrderManagementRestClient().callServiceGET(profilePullURL);
 		
 				
 		System.out.println(outputJson);
@@ -43,14 +43,20 @@ public class CheckNewUserServlet extends HttpServlet {
 		if(outputJson.equals("null"))
 		{
 			session.setAttribute("customertype", "new");
+			CustomerDetails customerdetails = new CustomerDetails();
+			System.out.println(customerdetails);
+			session.setAttribute("customerdetails", customerdetails);
 			response.sendRedirect("home.jsp");
 			
 		}
 		else
 		{
 			session.setAttribute("customertype", "registered");
-			CustomerDetails customerdetails = new Gson().fromJson(outputJson, CustomerDetails.class); 
+			ProfilePull profile = new Gson().fromJson(outputJson, ProfilePull.class); 
+			CustomerDetails customerdetails = profile.getCustomerdetails();
 			customerdetails.setCustomertype("registered");
+			System.out.println(customerdetails);
+			System.out.println(customerdetails.getFname());
 			session.setAttribute("customerdetails", customerdetails);
 			response.sendRedirect("home.jsp");
 		}

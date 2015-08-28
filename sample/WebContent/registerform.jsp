@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="com.verizon.ves.ui.CustomerDetails"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@page import="com.verizon.ves.ui.CustomerDetails"%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title>Sign-up</title>
@@ -12,20 +13,34 @@ if(obj.value=="")
 	{
 		switch(obj.name)
 		{
-		case "cname":
+		case "fname":
 			document.getElementById("namev").innerHTML="This field cannot be empty.";
 			break;
 		
-		case "ba":
+		case "bstreetname":
 			document.getElementById("streetv").innerHTML="This field cannot be empty.";
 			break;
+		case "bcity":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+		case "bzipcode":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+		case "cstreetname":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+		case "ccity":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+		case "czipcode":
+			document.getElementById("streetv").innerHTML="This field cannot be empty.";
+			break;
+			
 		case "pa":
 			document.getElementById("statev").innerHTML="This field cannot be empty.";
 			break;
-		case "ea":
-			document.getElementById("countryv").innerHTML="This field cannot be empty.";
-			break;
-		case "ca":
+
+		case "contactnumber":
 			document.getElementById("zipv").innerHTML="This field cannot be empty.";
 			break;
 		
@@ -75,7 +90,7 @@ if(obj.value=="")
     </head>
     <body class="register-background">    
 
-        <form action="" class="register" method="post">
+        <form  class="register" >
             
             
                 <h3>Billing Details</h3>
@@ -87,7 +102,8 @@ if(obj.value=="")
 								Company Name *
 							</td>
 							<td>	
-							<input type="text" id="cname" name="cname" onblur="validate(this);" /> 
+							<input type="text" id="fname" name="fname" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getFname() %>'/> 
+							
 							</td>	
 							<span id="namev"></span>
 					</tr>
@@ -97,7 +113,7 @@ if(obj.value=="")
 								Street *`
 							</td>
 							<td>
-							<input type="text" class="long" name="ba" onblur="validate(this);"  /><span id="streetv"></span>
+							<input type="text" class="long" name="bstreetname" id="bstreetname" onblur="validate(this);"  value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getStreetname() %> '/><span id="streetv"></span>
 							</td>
 					</tr>
 					
@@ -106,7 +122,7 @@ if(obj.value=="")
 								City *
 							</td>
 							<td>
-							<input type="text" class="long" name="ba" onblur="validate(this);" />
+							<input type="text" class="long" name="bcity" id="bcity" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getCity() %>'/>
 							<span id="streetv"></span>
 							</td>
 					</tr>
@@ -117,7 +133,7 @@ if(obj.value=="")
 							</td>
 							<td>
 							
-								<select id="state" NAME="bstate">
+								<select id="bstate" name="bstate" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getState() %>'>
 										<option value="select">----select your state----</option>
 										<option value="ALASKA">ALASKA</option>
 										<option value="ARIZONA">ARIZONA</option>
@@ -155,7 +171,7 @@ if(obj.value=="")
 								Zipcode *
 							</td>
 							<td>
-								<input type="text" class="long" name="ba" onblur="validate(this);" /><span id="streetv"></span>
+								<input type="text" class="long" name="bzipcode" id="bzipcode" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getBillingaddress().getZipcode() %>'/><span id="streetv"></span>
 							</td>
 					</tr>
 				
@@ -167,7 +183,7 @@ if(obj.value=="")
 								Email Address *
 							</td>
 							<td>
-								<input type="text" class="long" name="ea" onblur="validate(this);" /><span id="countryv"></span>
+								<input type="text" class="long" name="email" id="email" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getEmail() %>' /><span id="countryv"></span>
 							</td>
 					</tr>
                
@@ -176,7 +192,7 @@ if(obj.value=="")
 								Contact *
 							</td>
 							<td>
-								<input type="text" class="long" name="ca" onblur="validate(this);" /><span id="zipv"></span>
+								<input type="text" class="long" name="contactnumber" id="contactnumber" onblur="validate(this);" value='<%= ((CustomerDetails)session.getAttribute("customerdetails")).getContactnumber() %>'/><span id="zipv"></span>
 							</td>
                     
                     </tr>
@@ -196,7 +212,7 @@ if(obj.value=="")
 								Street *`
 							</td>
 							<td>
-							<input type="text" class="long" name="ba" onblur="validate(this);" /><span id="streetv"></span>
+							<input type="text" class="long" name="cstreet" id="cstreet" onblur="validate(this);" /><span id="streetv"></span>
 							</td>
 					</tr>
 					
@@ -205,7 +221,7 @@ if(obj.value=="")
 								City *
 							</td>
 							<td>
-							<input type="text" class="long" name="ba" onblur="validate(this);" />
+							<input type="text" class="long" name="ccity" id="ccity" onblur="validate(this);" />
 							<span id="streetv"></span>
 							</td>
 					</tr>
@@ -215,7 +231,7 @@ if(obj.value=="")
 								State *
 							</td>
 							<td>
-								<select id="pstate">
+								<select id="cstate" name="cstate">
 										<option value="select">----select your state----</option>
 										<option value="ALASKA">ALASKA</option>
 										<option value="ARIZONA">ARIZONA</option>
@@ -259,7 +275,7 @@ if(obj.value=="")
 								Zipcode *
 							</td>
 							<td>
-								<input type="text" class="long" name="ba" onblur="validate(this);" /><span id="streetv"></span>
+								<input type="text" class="long" name="czipcode" id="czipcode" onblur="validate(this);" /><span id="streetv"></span>
 							</td>
 					</tr>
             </table>    

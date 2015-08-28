@@ -54,10 +54,11 @@ public class OrderManagementRestClient {
 		
        }
 
-	public void callServiceGET(String currentURL) throws IOException {
+	public String callServiceGET(String currentURL) throws IOException {
 	   	
+		String outputJson = null;
 	   	int responseCode = 0;
-		String arr="";
+		
 						
 		URL url = new URL(currentURL);
 		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
@@ -68,18 +69,19 @@ public class OrderManagementRestClient {
 			String str = "";
 			StringBuilder responseJson = new StringBuilder();
 			while ((str = br.readLine()) != null) {
-				//System.out.println(str);
+				
 				responseJson.append(str);
 			}
 			JsonReader jsonReader = Json.createReader(new StringReader(new String(responseJson)));
 			JsonObject jsonObj = jsonReader.readObject();
 			jsonReader.close();
-			System.out.println(jsonObj.toString());
+			outputJson = jsonObj.toString();
+			//System.out.println(jsonObj.toString());
 		}
 
-	      
+	      return outputJson;
 			
-	       }
+	  }
 
 
 
