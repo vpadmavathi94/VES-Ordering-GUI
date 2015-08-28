@@ -4,7 +4,9 @@ public class SwitchCaseClass {
 	
 	public String StateName(String state) {
 		String stateid = null;
-		switch(state){
+		System.out.println("st" + state);
+		switch(state)
+		{
 		case "ALASKA":
 			   stateid="1";
 		break;

@@ -12,19 +12,24 @@ import java.net.URL;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.ws.rs.core.MediaType;
 
 public class OrderManagementRestClient {
 
 
 	
 	public String callService(String input, String currentURL) {
-   	 String output=null;
+   	 String output="";
+   	 String op="";
        try {
-           URL insertUrl = new URL(currentURL);           
+    	   System.out.println(currentURL);
+    	   
+           URL insertUrl = new URL(currentURL); 
+           System.out.println("input "+input);
            HttpURLConnection httpConnection = (HttpURLConnection) insertUrl.openConnection();
            httpConnection.setDoOutput(true);
            httpConnection.setRequestMethod("POST");
-           httpConnection.setRequestProperty("Content-Type", "application/json");      
+           httpConnection.setRequestProperty("Content-Type", MediaType.TEXT_PLAIN);      
            
            OutputStream outputStream = httpConnection.getOutputStream();
            outputStream.write(input.getBytes());
@@ -40,7 +45,8 @@ public class OrderManagementRestClient {
                    (httpConnection.getInputStream())));
           
            System.out.println("Output from Server:\n");
-           while ((output = responseBuffer.readLine()) != null) {
+           while ((op = responseBuffer.readLine()) != null) {
+        	   output = output  + op;
                System.out.println(output);
            }
            httpConnection.disconnect();

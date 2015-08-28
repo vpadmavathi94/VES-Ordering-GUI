@@ -171,7 +171,7 @@
 	  
 		<div id="framework" >
 			
-			
+				
 				<script>
 					
 					document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
@@ -195,6 +195,9 @@
 											</p>
 										</fieldset>
 									</form>
+									
+									 <form action="NewOrderServlet" class="register" method="post">
+										
 									<div id="anotherSection">
 										<fieldset>
 									
@@ -208,7 +211,7 @@
 											</div>
 										 
 											 <div id="provisioningResponse">
-												 <script>
+												 <script> 
 												 
 												 </script>
 											 </div>
@@ -218,7 +221,9 @@
 													//document.getElementById("quoting").innerHTML='<object width="500" height="300" type="text/html" data="quoting.html" ></object>';
 												   $("#quoting").load("quoting.html");
 												</script>  
-											 </div>		 
+												</div>
+												<div><button class="btn btn-success" type="submit" value="submit">Order &raquo;</button></div> 
+											 	 
 										</fieldset>
 									</div>  
 					            </div>
@@ -366,7 +371,7 @@
 							</div>		
 					
 						</div>
-		 
+		 </form>
 						 <div id="editorder" class="onetime">
 							 <fieldset>
 							 

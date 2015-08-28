@@ -2,13 +2,13 @@ package com.verizon.ves.ui;
 public class Address {
 	
 	public String streetname;
-	public String zipcode;
+	public int zipcode;
 	public String city;
 	public String state;
 	public int stateid;
 	public String country;
 	
-	public Address(String streetname, String zipcode, String city,
+	public Address(String streetname, int zipcode, String city,
 			String state, int bstateid, String country) {
 		super();
 		this.streetname = streetname;
@@ -27,11 +27,11 @@ public class Address {
 		this.streetname = streetname;
 	}
 
-	public String getZipcode() {
+	public int getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipcode(String zipcode) {
+	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
 

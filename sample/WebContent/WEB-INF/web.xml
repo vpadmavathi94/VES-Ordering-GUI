@@ -10,6 +10,16 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+    <description></description>
+    <display-name>CallPCatServiceCatalog</display-name>
+    <servlet-name>CallPCatServiceCatalog</servlet-name>
+    <servlet-class>com.verizon.ves.webservice.servlets.CallPCatServiceCatalog</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CallPCatServiceCatalog</servlet-name>
+    <url-pattern>/CallPCatServiceCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Simple RESTFul Service</servlet-name>
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
     <init-param>

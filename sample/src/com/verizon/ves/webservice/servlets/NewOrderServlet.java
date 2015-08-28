@@ -37,7 +37,7 @@ import com.verizon.ves.ui.SwitchCaseClass;
 @WebServlet("/NewOrderServlet")
 public class NewOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String orderingURL = "http://192.168.1.27:8080/OrderManagement/rest/om/submitorder";
+	private static final String orderingURL = "http://192.168.1.19:8080/OrderManagement/rest/om/submitorder";
 
     public NewOrderServlet() {
         super();
@@ -48,7 +48,7 @@ public class NewOrderServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session=request.getSession();
-		
+		/*
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		Calendar calendar = Calendar.getInstance();
 		
@@ -60,9 +60,12 @@ public class NewOrderServlet extends HttpServlet {
 		String bzipcode = request.getParameter("bzipcode");
 		String bcity = request.getParameter("bcity");		
 		String bstate = request.getParameter("bstate");
+		System.out.println("bstate" + bstate);
 		int bstateid = Integer.parseInt(new SwitchCaseClass().StateName(bstate));
 		String bcountry = "USA";
 		Address billingaddress = new Address(bstreetname,bzipcode,bcity,bstate,bstateid,bcountry);
+		
+		System.out.println(billingaddress);
 		
 		String cstreetname = request.getParameter("cstreetname");
 		String czipcode = request.getParameter("czipcode");
@@ -71,6 +74,8 @@ public class NewOrderServlet extends HttpServlet {
 		int cstateid = Integer.parseInt(new SwitchCaseClass().StateName(cstate));
 		String ccountry = "USA";
 		Address connectionaddress = new Address(cstreetname,czipcode,ccity,cstate,cstateid,ccountry);
+		
+		System.out.println(connectionaddress);
 		
 		String customertype ="new";
 		String customerid ="null";
@@ -83,12 +88,13 @@ public class NewOrderServlet extends HttpServlet {
 		CustomerDetails customerdetails = new CustomerDetails(customertype,customerid, fname, lname, billingaddress, connectionaddress, email, dateofbirth, contactnumber);
 		
 		
-		int max = Integer.parseInt((String)request.getParameter("max"));
+		//int max = Integer.parseInt((String)request.getParameter("max"));
+		int max=100;
 		int current = (int)(0.25*max);
 		Quantity quantity = new Quantity(max,current);
 		
 		Services[] services = new Services[1];
-		String servicecode = request.getParameter("servicecode");
+		String servicecode = "b2000";//request.getParameter("product");
 		String servicename = new SwitchCaseClass().serviceName(servicecode);
 		services[0] = new Services(servicecode, servicename, quantity);
 		
@@ -101,19 +107,22 @@ public class NewOrderServlet extends HttpServlet {
 		String modeltype = request.getParameter("modeltype");
 		String classofservice = request.getParameter("classofservice");
 		
-		
-		if(classofservice.equals(""))
+	
+		if(classofservice.equals("Platinum"))
 		  calendar.add(Calendar.DATE, 3); 
-		else if(classofservice.equals(""))
+		else if(classofservice.equals("Gold"))
 			calendar.add(Calendar.DATE, 7); 	
-		else if(classofservice.equals(""))
+		else if(classofservice.equals("Silver"))
 			calendar.add(Calendar.DATE, 11); 	
-		else if(classofservice.equals(""))
+		else if(classofservice.equals("Bronze"))
 			calendar.add(Calendar.DATE, 15); 	
 		else 
 		  calendar.add(Calendar.DATE, 20); 	
-		
+	
 		duedate = sdf.format(calendar.getTime());
+		
+		
+		
 		OrderDetails orderdetails = new OrderDetails(orderid,dateofbooking, duedate, services);
 		
 		String fromdate =request.getParameter("fromdate");
@@ -123,13 +132,27 @@ public class NewOrderServlet extends HttpServlet {
 		ContractDetails[] contractdetails = new ContractDetails[1];
 		contractdetails[0] = new ContractDetails(contractid, modeltype, classofservice, fromdate, todate, discountpercentage, change);
 		
-		String lineofbusiness = request.getParameter("lineofbusiness");
-		Ordering ordering = new Ordering(lineofbusiness, customerdetails, orderdetails, contractdetails);
+		String lineofbusiness = "ves";
 		
+		Ordering ordering = new Ordering(lineofbusiness, customerdetails, orderdetails, contractdetails);
+		*/
+		Address connectionaddress1 = new Address("10, rj road", 600033, "chennai", "ARIZONA", 20, "USA");
+		Address billingaddress1 = new Address("aa street", 600053, "Mumbai", "ARIZONA", 20, "USA");		
+		CustomerDetails customerdetails1 = new CustomerDetails("new", "20", "sid", "sss", connectionaddress1, billingaddress1, "abc@gmail.com", 6523417892L, "null");
+		Quantity quantity1 = new Quantity(50, 20);
+		Services[] services1= new Services[1];
+		services1[0]= new Services("10233", "chgch", quantity1);
+		
+		
+		OrderDetails orderdetails1= new OrderDetails("2012222", "22-AUG-2015", "22-MAR-2016", services1);
+		ContractDetails[] contractdetails1=new ContractDetails[1];
+		contractdetails1[0]=new ContractDetails("20141", "rtb", "gold", "20-APR-2015", "02-SEP-2017", 10, "10"); 
+		Ordering ordering1= new Ordering("ves", customerdetails1, orderdetails1, contractdetails1); 
+		System.out.println(ordering1);
 		
 		PrintWriter out = response.getWriter();  
 		Gson gson = new Gson();
-		String orderingJson = gson.toJson(ordering);
+		String orderingJson = gson.toJson(ordering1);
 						
 		System.out.println(orderingJson);
 		
@@ -145,18 +168,22 @@ public class NewOrderServlet extends HttpServlet {
 		{
 			session.setAttribute("orderingstatus", "success");
 			
-			EnterpriseOrder enterpriseOrder=gson.fromJson(outputJson, EnterpriseOrder.class);
-			customerid = enterpriseOrder.getCustomerid();
-			contractid = enterpriseOrder.getContractid();
-			orderid = enterpriseOrder.getOrderid();
+//			EnterpriseOrder enterpriseOrder=gson.fromJson(outputJson, EnterpriseOrder.class);
+//			customerid = enterpriseOrder.getCustomerid();
+//			contractid = enterpriseOrder.getContractid();
+//			orderid = enterpriseOrder.getOrderid();
 			
-			boolean status = new EnterpriseOrderDAO().NewOrder(orderid, contractid, customerid, email);
+	//		boolean status = new EnterpriseOrderDAO().NewOrder(orderid1, contractid1, customerid1, "abc@gmail.com");
+//			
+//			ordering.getCustomerdetails().setCustomerid(customerid);
+//			ordering.getContractdetails()[0].setContractid(contractid);
+//			ordering.getOrderdetails().setOrderid(orderid);
 			
-			ordering.getCustomerdetails().setCustomerid(customerid);
-			ordering.getContractdetails()[0].setContractid(contractid);
-			ordering.getOrderdetails().setOrderid(orderid);
+			ordering1.getCustomerdetails().setCustomerid("1");
+			ordering1.getContractdetails()[0].setContractid("2");
+			ordering1.getOrderdetails().setOrderid("3");
 			
-			session.setAttribute("ordering", ordering);
+			session.setAttribute("ordering", ordering1);
 			response.sendRedirect("ordersummary.jsp");
 			
 			

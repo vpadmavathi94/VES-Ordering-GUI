@@ -1,22 +1,29 @@
 function alert1(temp)
 {
-	alert(document.getElementById("cstate").value);
-	alert(temp.id);
+	//alert(document.getElementById("pstate").value);
+	//alert(temp.id);
 	if(temp.id=="prod1")
-	{service="internetdedicated";}
+	{service="internetdedicated";
+	service1="Internet Dedicated";}
 	else if(temp.id=="prod2")
-		{service="pip";}
+		{service="pip";
+		service1="PIP";}
 	else if(temp.id=="prod3")
-	{service="internetdedicated&pip";}
+	{service="internetdedicated&p2=pip";
+	service1="Internet Dedicated + PIP";}
 	else if(temp.id=="prod4")
 	{service="access";
-	alert(service);}
+	service1="Access";
+	}
 	else if(temp.id=="prod5")
-	{service="pip&access";}
+	{service="pip&p2=access";
+	service1="PIP + Access";}
 	else if(temp.id=="prod6")
-	{service="access&internetdedicated";}
+	{service="access&p2=internetdedicated";
+	service1="Access + Internet Dedicated";}
 	else if(temp.id=="prod7")
-	{service="access&pip&internetdedicated";}
+	{service="access&p2=pip&p3=internetdedicated";
+	service1="Access + PIP + Internet Dedicated";}
 		
 	
 	
@@ -24,12 +31,12 @@ function alert1(temp)
 	
 	
 	
-	alert(service);
+	
 		//var str="http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("state").value+"&"+service;
 	//alert("http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("pstate").value+"&"+service);
-		dataString="cstate="+document.getElementById("cstate").value+ "&pService="+service;
+		dataString="pstate="+document.getElementById("pstate").value+ "&pService="+service;
 		//alert(document.getElementById("pstate").value);
-		alert(dataString);
+		//alert(dataString);
 		$.ajax({
             type: "POST",
             url: "CallPCatServiceCatalog",
@@ -38,16 +45,16 @@ function alert1(temp)
             
             //if received a response from the server
             success: function( data, textStatus, jqXHR) {
-            	alert("helo akash");
+            	//alert("helo akash");
                  $("#PL").html("");
                   console.log( data );
                  str1 = JSON.stringify(data);
                  var obj=JSON.parse(str1);
-                 alert(str1);
+                 //alert(str1);
                 // console.log(str1);
                 // alert( obj.Product_Details[0].Product_ID.value);
                  //alert(obj.products[1].product_name);
-                 var radio="<input type=\"radio\" name=\"product\" id=\"product\" value=\"";
+                 var radio="<input type=\"radio\" name=\"product\" value=\"";
                  var radio_next="\"/>";
                  var table_head="<table cellpadding=\"15px\" class=\"product-table\"><tr><td>Select</td><td>Product ID</td><td>Product Name</td><td>Product Description</td><td>Cost</td></tr>";
                  //alert(obj.products.length);
@@ -55,7 +62,7 @@ function alert1(temp)
                  if(service=="access"|| service=="pip" || service=="internetdedicated"){
              for(var i=0;i<obj.Product_Details.length;i++)
             	 {
-            	 alert(i);
+            	 //alert(i);
                 med=med+"<tr><td>"+radio+obj.Product_Details[i].Product_ID.value+radio_next+"</td><td>"+obj.Product_Details[i].Product_ID.value+"</td><td>"+obj.Product_Details[i].Product_Name.value+"</td><td>"+obj.Product_Details[i].Product_Description.value+"</td><td>"+obj.Product_Details[i].Cost.value;
               //$("#PL").append(obj.products[i].product_id);
              // $("#PL").append("</td><td>"+obj.products[i].product_name);
@@ -76,11 +83,12 @@ function alert1(temp)
                  } 
                  else
                 	 {
-                	 alert("else check");
-                	 for(var i=0;i<obj.Bundle_Details.length;i++)
+                	 //alert("else check");
+                	 //alert(obj.Bundle_Details.length);
+                	 for(var j=0;j<obj.Bundle_Details.length;j++)
                 	 {
-                	 alert(i);
-                    med=med+"<tr><td>"+radio+obj.Bundle_Details[i].Bundle_Id.value+radio_next+"</td><td>"+obj.Bundle_Details[i].Bundle_Id.value+"</td><td>"+" "+"</td><td>"+obj.Bundle_Details[i].Bundle_Desc.value+"</td><td>"+obj.Bundle_Details[i].Bundle_Cost.value;
+                	 //alert(j);
+                    med=med+"<tr><td>"+radio+obj.Bundle_Details[j].Bundle_Id.value+radio_next+"</td><td>"+obj.Bundle_Details[j].Bundle_Id.value+"</td><td>"+service1+"</td><td>"+obj.Bundle_Details[j].Bundle_Desc.value+"</td><td>"+obj.Bundle_Details[j].Bundle_Cost.value;
                   //$("#PL").append(obj.products[i].product_id);
                  // $("#PL").append("</td><td>"+obj.products[i].product_name);
                  // $("#PL").append(obj.products[i].product_name);

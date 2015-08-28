@@ -99,7 +99,7 @@ function validate()
 									<span class="input-group-addon"><i class="icon_key_alt"></i></span>
 									<input type="password" class="form-control" placeholder="Password" name ="password" id="password">
 								</div>
-								
+						 		
 								<span class="pull-right"> <a href="ForgotPassword.jsp">&nbsp;&nbsp;&nbsp;Forgot Password?</a></span>
 								<br>
             <br>

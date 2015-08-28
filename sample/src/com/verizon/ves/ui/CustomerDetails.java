@@ -9,7 +9,7 @@ public class CustomerDetails {
 	private Address connectionaddress;
 	private Address billingaddress;	
 	private String email;
-	private String contactnumber;
+	private long contactnumber;
 	private String dateofbirth;
 	
 	public CustomerDetails()  {
@@ -17,10 +17,10 @@ public class CustomerDetails {
 		this.customerid = "";
 		this.fname = "";
 		this.lname = null;
-		this.connectionaddress = new Address("", "", "", "select", 0, "");
-		this.billingaddress = new Address("", "", "", "select", 0, "");
+		this.connectionaddress = new Address("", 0, "", "select", 0, "");
+		this.billingaddress = new Address("", 0, "", "select", 0, "");
 		this.email = "";
-		this.contactnumber = "";
+		this.contactnumber = 0;
 		this.dateofbirth = null;
 		
 	}
@@ -28,7 +28,7 @@ public class CustomerDetails {
 	public CustomerDetails(String customertype, String customerid,
 			String fname, String lname,	Address connectionaddress,
 			Address billingaddress, String email,
-			String contactnumber, String dateofbirth) {
+			long contactnumber, String dateofbirth) {
 		super();
 		this.customertype = customertype;
 		this.customerid = customerid;
@@ -97,11 +97,11 @@ public class CustomerDetails {
 		this.email = email;
 	}
 
-	public String getContactnumber() {
+	public long getContactnumber() {
 		return contactnumber;
 	}
 
-	public void setContactnumber(String contactnumber) {
+	public void setContactnumber(long contactnumber) {
 		this.contactnumber = contactnumber;
 	}
 

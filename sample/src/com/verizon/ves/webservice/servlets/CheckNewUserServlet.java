@@ -40,7 +40,7 @@ public class CheckNewUserServlet extends HttpServlet {
 		System.out.println(outputJson);
 		
 		
-		if(outputJson.equals("null"))
+		if(outputJson == null)
 		{
 			session.setAttribute("customertype", "new");
 			CustomerDetails customerdetails = new CustomerDetails();
