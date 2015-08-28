@@ -3,7 +3,7 @@ package com.verizon.ves.ui;
 public class CustomerDetails {
 	
 	private String customertype;
-	private String customerid;	
+	private int customerid;	
 	private String fname;
 	private String lname;		
 	private Address connectionaddress;
@@ -14,7 +14,7 @@ public class CustomerDetails {
 	
 	public CustomerDetails()  {
 		this.customertype = "";
-		this.customerid = "";
+		this.customerid = 0;
 		this.fname = "";
 		this.lname = null;
 		this.connectionaddress = new Address("", 0, "", "select", 0, "");
@@ -25,7 +25,7 @@ public class CustomerDetails {
 		
 	}
 	
-	public CustomerDetails(String customertype, String customerid,
+	public CustomerDetails(String customertype, int customerid,
 			String fname, String lname,	Address connectionaddress,
 			Address billingaddress, String email,
 			long contactnumber, String dateofbirth) {
@@ -49,11 +49,11 @@ public class CustomerDetails {
 		this.customertype = customertype;
 	}
 
-	public String getCustomerid() {
+	public int getCustomerid() {
 		return customerid;
 	}
 
-	public void setCustomerid(String customerid) {
+	public void setCustomerid(int customerid) {
 		this.customerid = customerid;
 	}
 

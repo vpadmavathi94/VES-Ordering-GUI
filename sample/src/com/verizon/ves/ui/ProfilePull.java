@@ -6,14 +6,14 @@ public class ProfilePull {
 	
 	String lineofbusiness;
 	CustomerDetails customerdetails;
-	OrderDetails[] orderdetails;
+	OrderHistory[] orderhistory;
 	ContractDetails[] contractdetails;
 	public ProfilePull(String lineofbusiness, CustomerDetails customerdetails,
-			OrderDetails[] orderdetails, ContractDetails[] contractdetails) {
+			OrderHistory[] orderhistory, ContractDetails[] contractdetails) {
 		super();
-		this.lineofbusiness = lineofbusiness;
+		this.lineofbusiness = "ves";
 		this.customerdetails = customerdetails;
-		this.orderdetails = orderdetails;
+		this.orderhistory = orderhistory;
 		this.contractdetails = contractdetails;
 	}
 	public String getLineofbusiness() {
@@ -28,11 +28,11 @@ public class ProfilePull {
 	public void setCustomerdetails(CustomerDetails customerdetails) {
 		this.customerdetails = customerdetails;
 	}
-	public OrderDetails[] getOrderdetails() {
-		return orderdetails;
+	public OrderHistory[] getOrderHistory() {
+		return orderhistory;
 	}
-	public void setOrderdetails(OrderDetails[] orderdetails) {
-		this.orderdetails = orderdetails;
+	public void setOrderHistory(OrderHistory[] orderhistory) {
+		this.orderhistory = orderhistory;
 	}
 	public ContractDetails[] getContractdetails() {
 		return contractdetails;
@@ -43,8 +43,8 @@ public class ProfilePull {
 	@Override
 	public String toString() {
 		return "ProfilePull [lineofbusiness=" + lineofbusiness
-				+ ", customerdetails=" + customerdetails + ", orderdetails="
-				+ Arrays.toString(orderdetails) + ", contractdetails="
+				+ ", customerdetails=" + customerdetails + ", orderhistory="
+				+ Arrays.toString(orderhistory) + ", contractdetails="
 				+ Arrays.toString(contractdetails) + "]";
 	}
 	

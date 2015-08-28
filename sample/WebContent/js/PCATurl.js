@@ -1,3 +1,4 @@
+
 function alert1(temp)
 {
 	alert(document.getElementById("cstate").value);
@@ -24,12 +25,12 @@ function alert1(temp)
 	
 	
 	
-	alert(service);
+//	alert(service);
 		//var str="http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("state").value+"&"+service;
 	//alert("http://localhost:8090/SimpleRESTBasedCommunication/rest/server/"+document.getElementById("pstate").value+"&"+service);
 		dataString="cstate="+document.getElementById("cstate").value+ "&pService="+service;
 		//alert(document.getElementById("pstate").value);
-		alert(dataString);
+//		alert(dataString);
 		$.ajax({
             type: "POST",
             url: "CallPCatServiceCatalog",
@@ -38,7 +39,7 @@ function alert1(temp)
             
             //if received a response from the server
             success: function( data, textStatus, jqXHR) {
-            	alert("helo akash");
+       //     	alert("helo akash");
                  $("#PL").html("");
                   console.log( data );
                  str1 = JSON.stringify(data);
@@ -55,7 +56,7 @@ function alert1(temp)
                  if(service=="access"|| service=="pip" || service=="internetdedicated"){
              for(var i=0;i<obj.Product_Details.length;i++)
             	 {
-            	 alert(i);
+       //     	 alert(i);
                 med=med+"<tr><td>"+radio+obj.Product_Details[i].Product_ID.value+radio_next+"</td><td>"+obj.Product_Details[i].Product_ID.value+"</td><td>"+obj.Product_Details[i].Product_Name.value+"</td><td>"+obj.Product_Details[i].Product_Description.value+"</td><td>"+obj.Product_Details[i].Cost.value;
               //$("#PL").append(obj.products[i].product_id);
              // $("#PL").append("</td><td>"+obj.products[i].product_name);
@@ -79,7 +80,7 @@ function alert1(temp)
                 	 alert("else check");
                 	 for(var i=0;i<obj.Bundle_Details.length;i++)
                 	 {
-                	 alert(i);
+           //     	 alert(i);
                     med=med+"<tr><td>"+radio+obj.Bundle_Details[i].Bundle_Id.value+radio_next+"</td><td>"+obj.Bundle_Details[i].Bundle_Id.value+"</td><td>"+" "+"</td><td>"+obj.Bundle_Details[i].Bundle_Desc.value+"</td><td>"+obj.Bundle_Details[i].Bundle_Cost.value;
                   //$("#PL").append(obj.products[i].product_id);
                  // $("#PL").append("</td><td>"+obj.products[i].product_name);

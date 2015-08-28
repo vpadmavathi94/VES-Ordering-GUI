@@ -9,7 +9,7 @@ public class OrderHistory {
 	String duedate;
 	String orderstatus;
 	Services[] services;
-	
+	Products[] products;
 	
 	
 	public OrderHistory(String orderid, String dateoforder, String duedate,

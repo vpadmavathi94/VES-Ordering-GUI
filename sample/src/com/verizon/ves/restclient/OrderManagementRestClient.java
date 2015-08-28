@@ -70,6 +70,7 @@ public class OrderManagementRestClient {
 		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
 		httpConnection.connect();
 		responseCode = httpConnection.getResponseCode();
+		System.out.println(responseCode);
 		if (responseCode == 200) {
 			BufferedReader br = new BufferedReader(new InputStreamReader(httpConnection.getInputStream()));
 			String str = "";

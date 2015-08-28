@@ -24,7 +24,7 @@ public class CallPCatServiceCatalog extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 //    url: "http://192.168.1.64:4782/PCatServiceCatalog/api/VES/"+
 		//document.getElementById("pstate").value+"&"+service
-		String st = request.getParameter("pstate");
+		String st = request.getParameter("cstate");
 		String service = request.getParameter("pService");
 		String p2 = request.getParameter("p2");
 		String p3 = request.getParameter("p3");

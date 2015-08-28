@@ -3,14 +3,14 @@ package com.verizon.ves.ui;
 
 public class ContractDetails {
 	
-	String contractid;
+	int contractid;
 	String modeltype;
 	String classofservice;
 	String fromdate;
 	String todate;
 	int discountpercentage;
 	String change;
-	public ContractDetails(String contractid, String modeltype,
+	public ContractDetails(int contractid, String modeltype,
 			String classofservice, String fromdate, String todate,
 			int discountpercentage, String change) {
 		super();
@@ -22,10 +22,10 @@ public class ContractDetails {
 		this.discountpercentage = discountpercentage;
 		this.change = change;
 	}
-	public String getContractid() {
+	public int getContractid() {
 		return contractid;
 	}
-	public void setContractid(String contractid) {
+	public void setContractid(int contractid) {
 		this.contractid = contractid;
 	}
 	public String getModeltype() {

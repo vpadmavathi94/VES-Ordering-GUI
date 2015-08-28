@@ -136,37 +136,37 @@ public class NewOrderServlet extends HttpServlet {
 		
 		Ordering ordering = new Ordering(lineofbusiness, customerdetails, orderdetails, contractdetails);
 		*/
-		Address connectionaddress1 = new Address("10, rj road", 600033, "chennai", "ARIZONA", 20, "USA");
-		Address billingaddress1 = new Address("aa street", 600053, "Mumbai", "ARIZONA", 20, "USA");		
-		CustomerDetails customerdetails1 = new CustomerDetails("new", "20", "sid", "sss", connectionaddress1, billingaddress1, "abc@gmail.com", 6523417892L, "null");
-		Quantity quantity1 = new Quantity(50, 20);
-		Services[] services1= new Services[1];
-		services1[0]= new Services("10233", "chgch", quantity1);
-		
-		
-		OrderDetails orderdetails1= new OrderDetails("2012222", "22-AUG-2015", "22-MAR-2016", services1);
-		ContractDetails[] contractdetails1=new ContractDetails[1];
-		contractdetails1[0]=new ContractDetails("20141", "rtb", "gold", "20-APR-2015", "02-SEP-2017", 10, "10"); 
-		Ordering ordering1= new Ordering("ves", customerdetails1, orderdetails1, contractdetails1); 
-		System.out.println(ordering1);
-		
-		PrintWriter out = response.getWriter();  
-		Gson gson = new Gson();
-		String orderingJson = gson.toJson(ordering1);
-						
-		System.out.println(orderingJson);
-		
-		String outputJson = new OrderManagementRestClient().callService(orderingJson, orderingURL);
-		
-		//write if else for outputJson
-		if(outputJson.equals("null"))
-		{
-			session.setAttribute("orderingstatus", "failed");
-		}
-		
-		else
-		{
-			session.setAttribute("orderingstatus", "success");
+//		Address connectionaddress1 = new Address("10, rj road", 600033, "chennai", "ARIZONA", 20, "USA");
+//		Address billingaddress1 = new Address("aa street", 600053, "Mumbai", "ARIZONA", 20, "USA");		
+//		CustomerDetails customerdetails1 = new CustomerDetails("new", 20, "sid", "sss", connectionaddress1, billingaddress1, "abc@gmail.com", 6523417892L, "null");
+//		Quantity quantity1 = new Quantity(50, 20);
+//		Services[] services1= new Services[1];
+//		services1[0]= new Services("10233", "chgch", quantity1);
+//		
+//		
+//		OrderDetails orderdetails1= new OrderDetails("2012222", "22-AUG-2015", "22-MAR-2016", services1);
+//		ContractDetails[] contractdetails1=new ContractDetails[1];
+//		//contractdetails1[0]=new ContractDetails("20141", "rtb", "gold", "20-APR-2015", "02-SEP-2017", 10, "10"); 
+//		Ordering ordering1= new Ordering("ves", customerdetails1, orderdetails1, contractdetails1); 
+//		System.out.println(ordering1);
+//		
+//		PrintWriter out = response.getWriter();  
+//		Gson gson = new Gson();
+//		String orderingJson = gson.toJson(ordering1);
+//						
+//		System.out.println(orderingJson);
+//		
+//		String outputJson = new OrderManagementRestClient().callService(orderingJson, orderingURL);
+//		
+//		//write if else for outputJson
+//		if(outputJson.equals("null"))
+//		{
+//			session.setAttribute("orderingstatus", "failed");
+//		}
+//		
+//		else
+//		{
+//			session.setAttribute("orderingstatus", "success");
 			
 //			EnterpriseOrder enterpriseOrder=gson.fromJson(outputJson, EnterpriseOrder.class);
 //			customerid = enterpriseOrder.getCustomerid();
@@ -178,17 +178,17 @@ public class NewOrderServlet extends HttpServlet {
 //			ordering.getCustomerdetails().setCustomerid(customerid);
 //			ordering.getContractdetails()[0].setContractid(contractid);
 //			ordering.getOrderdetails().setOrderid(orderid);
+//			
+//			ordering1.getCustomerdetails().setCustomerid("1");
+//			ordering1.getContractdetails()[0].setContractid("2");
+//			ordering1.getOrderdetails().setOrderid("3");
+//			
+//			session.setAttribute("ordering", ordering1);
+//			response.sendRedirect("ordersummary.jsp");
 			
-			ordering1.getCustomerdetails().setCustomerid("1");
-			ordering1.getContractdetails()[0].setContractid("2");
-			ordering1.getOrderdetails().setOrderid("3");
-			
-			session.setAttribute("ordering", ordering1);
-			response.sendRedirect("ordersummary.jsp");
 			
 			
-			
-		}
+	//	}
 		
 
 	}		

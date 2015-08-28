@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
- <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
-
+  <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+  
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-    <link rel="shortcut icon" href="img/favicon.png">F
+    <link rel="shortcut icon" href="img/favicon.png">
 
     <title>V Enterprise </title>
     <!-- Bootstrap CSS -->    
@@ -95,10 +95,9 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                            	<% String image_source = "img/"+session.getAttribute("userName")+".jpg"; %>
-                                <img alt="" src=<%=image_source %>>
+                                <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username"><%= session.getAttribute("userName")%></span>
+                            <span class="username">Jenifer Smith</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -171,10 +170,9 @@
 	  
 		<div id="framework" >
 			
-				
+			
 				<script>
-					
-					document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
+				document.getElementById("framework").innerHTML='<center><object height="700" width="1300" type="text/html" data="slider.html" ></object></center>';
 				</script>
 			
 				</div>
@@ -184,20 +182,17 @@
 							
 							<div id="left">	
 								<div id="new_form">
-									<form id="myAjaxRequestForm" action="CheckNewUserServlet" method="post">
+									<form id="myAjaxRequestForm">
 										<fieldset>
 											<h2>Customer Information</h2>
-											<br>
+											<br> 
 											<p>
 												<label for="cust_name">Customer's Email:</label>
-												<input id="email" type="text" name="email"  />&nbsp;&nbsp;&nbsp;
-												<input class="btn btn-success" type="submit" value="Validate" />
+												<input id="cust_name" type="text" name="cust_name"  />&nbsp;&nbsp;&nbsp;
+												<input class="btn btn-success" type="button" value="Validate" />
 											</p>
 										</fieldset>
 									</form>
-									
-									 <form action="NewOrderServlet" class="register" method="post">
-										
 									<div id="anotherSection">
 										<fieldset>
 									
@@ -205,25 +200,23 @@
 												<script>
 													//document.getElementById("ajaxResponse").innerHTML='<object width="500" height="450" type="text/html" data="register.html" ></object>';
 													//$(document).ready(function(){
-														$("#ajaxResponse").load("registerform.jsp");
+														$("#ajaxResponse").load("register.html");
 													//});
 												</script>  
 											</div>
 										 
 											 <div id="provisioningResponse">
-												 <script> 
+												 <script>
 												 
 												 </script>
 											 </div>
 											 
 											 <div id="quoting">
 												<script>
-													//document.getElementById("quoting").innerHTML='<object width="500" height="300" type="text/html" data="quoting.html" ></object>';
-												   $("#quoting").load("quoting.html");
+													document.getElementById("quoting").innerHTML='<object width="500" height="300" type="text/html" data="quoting.html" ></object>';
 												</script>  
-												</div>
-												<div><button class="btn btn-success" type="submit" value="submit">Order &raquo;</button></div> 
-											 	 
+											 </div>	
+											 <div><input id="click_check"  class="btn btn-success" type="button" value="submit" onClick="test();"/></div>	 
 										</fieldset>
 									</div>  
 					            </div>
@@ -371,14 +364,14 @@
 							</div>		
 					
 						</div>
-		 </form>
+		 
 						 <div id="editorder" class="onetime">
 							 <fieldset>
 							 
 								<h2>Edit Order(Only for the Right To Buy Customer)</h2>
 							 
 								<div id="editorder1" class="eo">
-									<form id="editRequest" action="EditOrderServlet" method="post">
+									<form id="editRequest">
 										Contract ID:&nbsp;&nbsp;&nbsp;<input type="text" name="orderID" id="orderID" />&nbsp;&nbsp;
 										<input type="button" id="editbutton" class="btn btn-success" name="editbutton" value="Search"/>
 										<div id="displaySection">
@@ -422,7 +415,27 @@
 		 
 	  
   <!-- container section start -->
+  <script>
   
+   function test(){
+	   alert("hello");
+		 
+		 var result;
+		var obj2 = document.getElementsByName("pdt");	 
+		alert (obj2[0].checked);   
+		for(var i=0; i<obj2.length; i++){
+	        if(obj2[i].checked==true ){
+	            result = obj2[i].value;
+	            document.location.href="OrderingServlet?servicecode="+result;
+	        }
+	    }
+	    alert( result );
+
+
+
+
+		}
+  </script>
      <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <!-- javascripts -->

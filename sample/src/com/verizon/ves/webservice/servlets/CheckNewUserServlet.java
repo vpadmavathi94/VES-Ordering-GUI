@@ -29,10 +29,10 @@ public class CheckNewUserServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
+		String email = "lol@gmail.com";//request.getParameter("email");
 		HttpSession session=request.getSession();
 		//System.out.println(email);
-		String emailJson = "{\"email\":\""+email+"\"}";
+		//String emailJson = "{\"email\":\""+email+"\"}";
 		String profilePullURL = URL+email;
 		String outputJson = new OrderManagementRestClient().callServiceGET(profilePullURL);
 		
